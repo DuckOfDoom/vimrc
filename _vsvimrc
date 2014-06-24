@@ -1,0 +1,27 @@
+"backspace pls!
+set backspace=indent,eol,start
+
+"go to resharper Highlights
+nnoremap <A-j> :vsc ReSharper.Resharper_GotoNextHighlight<CR>
+nnoremap <A-k> :vsc ReSharper.Resharper_GotoPrevHighlight<CR>
+
+"join lines is now here!
+nnoremap <C-j> :join<CR>
+
+"switching tabs
+nnoremap <S-k> :vsc Window.NextTab<CR>
+nnoremap <S-j> :vsc Window.PreviousTab<CR>
+
+nnoremap <S-x> :vsc Window.CloseDocumentWindow<CR>
+
+"copy inner word and paste it instead of inner word
+nnoremap <C-y> viwy
+nnoremap <C-p> viwp
+
+"paste multiple times
+xnoremap p pgvy
+
+"move screen to cursor when searching
+nmap <space> zz
+nmap n nzz
+nmap N Nz
