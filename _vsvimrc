@@ -8,9 +8,13 @@ nnoremap <A-k> :vsc ReSharper.Resharper_GotoPrevHighlight<CR>
 "join lines is now here!
 nnoremap <C-j> :join<CR>
 
+nnoremap '' ''zz
+
 "switching tabs
 nnoremap <S-k> :vsc Window.NextTab<CR>
 nnoremap <S-j> :vsc Window.PreviousTab<CR>
+
+nnoremap <C-A-w> :vsc File.CloseAllButThis<CR>
 
 nnoremap <S-x> :vsc Window.CloseDocumentWindow<CR>
 

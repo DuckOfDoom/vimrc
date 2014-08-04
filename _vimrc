@@ -2,9 +2,6 @@ set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 behave mswin
-
-set foldmarker={{{,}}} foldmethod=marker
-
 execute pathogen#infect()
 
 " => General"{{{
@@ -58,7 +55,7 @@ set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
 " Ignore case when searching
-set ignorecase
+" set ignorecase
 
 " When searching try to be smart about cases 
 set smartcase
@@ -89,14 +86,14 @@ set tm=500"
 
 "-----BEGIN Save/Restore Window Size/Position - autooad/screensize.vim-----
 if has("gui_running")
-  if !exists('g:screen_size_restore_pos')
-   let g:screen_size_restore_pos = 1
-  endif
-  if !exists('g:screen_size_by_vim_instance')
-    let g:screen_size_by_vim_instance = 1
-  endif
-  autocmd VimEnter * if g:screen_size_restore_pos == 1 | call screensize#ScreenRestore() | endif
-  autocmd VimLeavePre * if g:screen_size_restore_pos == 1 | call screensize#ScreenSave() | endif
+    if !exists('g:screen_size_restore_pos')
+        let g:screen_size_restore_pos = 1
+    endif
+    if !exists('g:screen_size_by_vim_instance')
+        let g:screen_size_by_vim_instance = 1
+    endif
+    autocmd VimEnter * if g:screen_size_restore_pos == 1 | call screensize#ScreenRestore() | endif
+    autocmd VimLeavePre * if g:screen_size_restore_pos == 1 | call screensize#ScreenSave() | endif
 endif
 "-----END Save/Restore Window Size/Position-------
 
@@ -116,7 +113,10 @@ set guifont=Consolas:h10:cRUSSIAN::
 if has("gui_running")
     set guioptions-=T
     set guioptions-=m
-"    set guioptions+=e
+    set guioptions-=l
+    set guioptions-=r
+    set guioptions-=b
+    "    set guioptions+=e
     set t_Co=256
     set guitablabel=%M\ %t
 endif
@@ -133,6 +133,7 @@ set ffs=unix,dos,mac
 " Use spaces instead of tabs
 set expandtab
 
+set ffs=dos,unix
 set ff=dos
 
 " Auto fold stuff
@@ -166,24 +167,30 @@ vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
 "}}}
 
-" => Buffers {{{
+" => Buffers and folding {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
 set nowb
 set noswapfile
 
+" Automatically switch CWD to current file location (for NERDTree and stuff)
+set autochdir
+
+set foldmarker={{{,}}} foldmethod=marker "Default folding for this file. For different file types folding is defined below
+set foldnestmax=1
+
 " FileTypes
 au BufNewFile,BufRead *.mxml set filetype=mxml
 au BufNewFile,BufRead *.as set filetype=actionscript
 au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl,*.shader set filetype=glsl 
 au BufNewFile,BufRead *.hs set filetype=haskell
-au BufNewFile,BufRead *.cs set filetype=cs foldmethod=syntax
+au BufNewFile,BufRead *.cs set filetype=cs 
 
 " Specify the behavior when switching between buffers 
 try
-  set switchbuf=useopen,usetab,newtab
-  set stal=2
+    set switchbuf=useopen,usetab,newtab
+    set stal=2
 catch
 endtry
 
@@ -192,9 +199,18 @@ autocmd BufWinEnter \* silent loadview
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \   exe "normal! g`\"" |
-     \ endif
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \   exe "normal! g`\"" |
+            \ endif
+
+" Go to last file if invoked without arguments.
+autocmd VimEnter * nested if
+            \ argc() == 0 &&
+            \ bufname("%") == "" &&
+            \ bufname("2" + 0) != "" |
+            \   exe "normal! `0" |
+            \ endif
+
 " Remember info about open buffers on close
 set viminfo^=%"
 "}}}
@@ -209,6 +225,9 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ 
 "}}}
 
 " => Keybindings {{{
+
+"Open the freakin vimrc!
+map <leader>vrc :vsplit $VIM\_vimrc<cr>
 
 "paste multiple times
 xnoremap p pgvy
@@ -227,10 +246,21 @@ nmap <space> zz
 nmap n nzz
 nmap N Nzz
 
-"tabs
+"buffers, tabs are for losers
 nnoremap <S-k> :bnext<CR>
 nnoremap <S-j> :bprevious<CR>
-nnoremap <S-x> :Bclose<CR>
+
+"navigating windows
+nnoremap <A-h> :wincmd h<CR>
+nnoremap <A-l> :wincmd l<CR>
+nnoremap <A-j> :wincmd j<CR>
+nnoremap <A-k> :wincmd k<CR>
+
+"join lines is now here!
+nnoremap <C-j> :join<CR>
+
+"center screen when returning the cursor to last position
+nnoremap '' ''zz
 
 "Comments
 map <C-k><C-c> :call Comment()<CR>
@@ -240,23 +270,12 @@ map <C-k><C-u> :call Uncomment()<CR>
 map j gj
 map k gk
 
-" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
-map <c-space> ?
-
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 
-" To open a new empty buffer
-" This replaces :tabnew which I used to bind to this mapping
-nmap <leader>T :enew<cr>
-
 " Close all the buffers
 map <leader>ba :1,1000 bd!<cr>
-
-" Opens a new tab with the current buffer's path
-" Super useful when editing files in the same directory
-map <leader>te :bufedit <c-r>=expand("%:p:h")<cr>
+map <leader>bc :Bclose<cr>
 
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
@@ -264,7 +283,37 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " => Airline {{{
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_enable_syntastic=1 
+let g:airline#extensions#tabline#fnamemod = ':t' "Only filenames
 "}}}
+
+" => CtrlP  {{{
+" Start ctrlP in MRU mode 
+let g:ctrlp_cmd = 'CtrlPMRU'
+let g:ctrlp_open_new_file = 'v'
+
+"  t - in a new tab.
+"  h - in a new horizontal split.
+"  v - in a new vertical split.
+"  r - in the current window.
+" }}}
+
+" => Syntastic {{{
+let g:syntastic_enable_signs=1
+
+map <leader>s :SyntasticCheck<cr>
+let g:syntastic_haskell_checkers = ['hlint']
+let g:syntastic_mode_map = { 'mode': 'passive',
+                            \ 'active_filetypes': [],
+                            \ 'passive_filetypes': [] }
+" }}}
+
+" => NERDTree {{{
+" Toggle
+map <leader>nt :NERDTreeToggle<CR>
+
+let g:NERDTreeWinSize=50
+" }}}
 
 " => Helper Functions "{{{
 function! CmdLine(str)
@@ -305,44 +354,44 @@ endfunction
 " Don't close window, when deleting a buffer
 command! Bclose call <SID>BufcloseCloseIt()
 function! <SID>BufcloseCloseIt()
-   let l:currentBufNum = bufnr("%")
-   let l:alternateBufNum = bufnr("#")
+    let l:currentBufNum = bufnr("%")
+    let l:alternateBufNum = bufnr("#")
 
-   if buflisted(l:alternateBufNum)
-     buffer #
-   else
-     bnext
-   endif
+    if buflisted(l:alternateBufNum)
+        buffer #
+    else
+        bnext
+    endif
 
-   if bufnr("%") == l:currentBufNum
-     new
-   endif
+    if bufnr("%") == l:currentBufNum
+        new
+    endif
 
-   if buflisted(l:currentBufNum)
-     execute("bdelete! ".l:currentBufNum)
-   endif
+    if buflisted(l:currentBufNum)
+        execute("bdelete! ".l:currentBufNum)
+    endif
 endfunction
 
 " Comment Stuff
 function! Comment()
-	let ext = tolower(expand('%:e'))
-	if (ext == 'hs')
-		silent s:^:--:g
-	elseif (ext == 'vim')
-		silent s:^:\":g
-	else
-		silent s:^:\/\/:g
-	endif
+    let ext = tolower(expand('%:e'))
+    if (ext == 'hs')
+        silent s:^:--:g
+    elseif (ext == 'vim')
+        silent s:^:\":g
+    else
+        silent s:^:\/\/:g
+    endif
 endfunction
 
 function! Uncomment()
-	let ext = tolower(expand('%:e'))
-	if (ext == 'hs')
-		silent s:^\s*\--::g
-	elseif (ext == 'vim')
-		silent s:^\s*\"::g
-	else
-		silent s:^\s*\/\/::g
-	endif
+    let ext = tolower(expand('%:e'))
+    if (ext == 'hs')
+        silent s:^\s*\--::g
+    elseif (ext == 'vim')
+        silent s:^\s*\"::g
+    else
+        silent s:^\s*\/\/::g
+    endif
 endfunction
 "}}}
