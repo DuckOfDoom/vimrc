@@ -298,16 +298,6 @@ let g:ctrlp_open_new_file = 'v'
 "  r - in the current window.
 " }}}
 
-" => Syntastic {{{
-let g:syntastic_enable_signs=1
-
-map <leader>s :SyntasticCheck<cr>
-let g:syntastic_haskell_checkers = ['hlint']
-let g:syntastic_mode_map = { 'mode': 'passive',
-                            \ 'active_filetypes': [],
-                            \ 'passive_filetypes': [] }
-" }}}
-
 " => NERDTree {{{
 " Toggle
 map <leader>nt :NERDTreeToggle<CR>
