@@ -369,6 +369,8 @@ function! Comment()
         silent s:^:--:g
     elseif (ext == 'vim')
         silent s:^:\":g
+    elseif (ext == 'rb')
+        silent s:^:#:g
     else
         silent s:^:\/\/:g
     endif
@@ -380,6 +382,8 @@ function! Uncomment()
         silent s:^\s*\--::g
     elseif (ext == 'vim')
         silent s:^\s*\"::g
+    elseif (ext == 'rb')
+        silent s:^\s*\#::g
     else
         silent s:^\s*\/\/::g
     endif
