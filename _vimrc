@@ -251,10 +251,10 @@ nnoremap <S-k> :bnext<CR>
 nnoremap <S-j> :bprevious<CR>
 
 "navigating windows
-nnoremap <A-h> :wincmd h<CR>
-nnoremap <A-l> :wincmd l<CR>
-nnoremap <A-j> :wincmd j<CR>
-nnoremap <A-k> :wincmd k<CR>
+nnoremap <A-j> :wincmd h<CR>
+nnoremap <A-k> :wincmd l<CR>
+nnoremap <A-h> :wincmd j<CR>
+nnoremap <A-l> :wincmd k<CR>
 
 "join lines is now here!
 nnoremap <C-j> :join<CR>
@@ -280,6 +280,7 @@ map <leader>bc :Bclose<cr>
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 "}}}
+
 
 " => Airline {{{
 let g:airline#extensions#tabline#enabled = 1
