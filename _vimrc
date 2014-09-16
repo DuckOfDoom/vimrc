@@ -281,7 +281,6 @@ map <leader>bc :Bclose<cr>
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 "}}}
 
-
 " => Airline {{{
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_enable_syntastic=1 
@@ -370,7 +369,7 @@ function! Comment()
         silent s:^:--:g
     elseif (ext == 'vim')
         silent s:^:\":g
-    elseif (ext == 'rb')
+    elseif (ext == 'rb' || ext =='yml')
         silent s:^:#:g
     else
         silent s:^:\/\/:g
@@ -383,7 +382,7 @@ function! Uncomment()
         silent s:^\s*\--::g
     elseif (ext == 'vim')
         silent s:^\s*\"::g
-    elseif (ext == 'rb')
+    elseif (ext == 'rb' || ext == 'yml')
         silent s:^\s*\#::g
     else
         silent s:^\s*\/\/::g

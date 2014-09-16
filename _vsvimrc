@@ -1,6 +1,14 @@
 "backspace pls!
 set backspace=indent,eol,start
 
+"leaderKey
+let mapleader = ","
+let g:mapleader = ","
+
+"closeWindows
+map <leader>ba :vsc Window.CloseAllDocuments<CR>
+map <leader>bc :vsc Window.CloseDocumentWindow<CR>
+
 "go to resharper Highlights
 nnoremap <A-j> :vsc ReSharper.Resharper_GotoNextHighlight<CR>
 nnoremap <A-k> :vsc ReSharper.Resharper_GotoPrevHighlight<CR>
@@ -14,13 +22,7 @@ nnoremap '' ''zz
 nnoremap <S-k> :vsc Window.NextTab<CR>
 nnoremap <S-j> :vsc Window.PreviousTab<CR>
 
-nnoremap <C-A-w> :vsc File.CloseAllButThis<CR>
-
 nnoremap <S-x> :vsc Window.CloseDocumentWindow<CR>
-
-"copy inner word and paste it instead of inner word
-nnoremap <C-y> viwy
-nnoremap <C-p> viwp
 
 "paste multiple times
 xnoremap p pgvy
