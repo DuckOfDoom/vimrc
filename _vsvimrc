@@ -13,6 +13,9 @@ map <leader>bc :vsc Window.CloseDocumentWindow<CR>
 nnoremap <A-j> :vsc ReSharper.Resharper_GotoNextHighlight<CR>
 nnoremap <A-k> :vsc ReSharper.Resharper_GotoPrevHighlight<CR>
 
+"go to type via ctrl+p
+nnoremap <C-p> :vsc ReSharper.ReSharper_GotoType<CR>
+
 "join lines is now here!
 nnoremap <C-j> :join<CR>
 

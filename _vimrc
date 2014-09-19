@@ -273,8 +273,9 @@ map k gk
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 
-" Close all the buffers
-map <leader>ba :1,1000 bd!<cr>
+" Close all the buffers but current
+map <leader>ba :BufOnly<cr>
+":1,1000 bd!<cr>
 map <leader>bc :Bclose<cr>
 
 " Switch CWD to the directory of the open buffer
