@@ -282,6 +282,11 @@ map <leader>bc :Bclose<cr>
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 "}}}
 
+" => AutoComplPop {{{
+let g:acp_completeoptPreview = 1
+let g:acp_mappingDriven = 1
+"}}}
+
 " => Airline {{{
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_enable_syntastic=1 
@@ -300,10 +305,9 @@ let g:ctrlp_open_new_file = 'v'
 " }}}
 
 " => NERDTree {{{
-" Toggle
-map <leader>nt :NERDTreeToggle<CR>
-
 let g:NERDTreeWinSize=50
+
+au VimEnter * NERDTree
 " }}}
 
 " => Helper Functions "{{{
