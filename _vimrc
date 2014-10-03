@@ -103,7 +103,7 @@ set diffexpr=diff#MyDiff()
 " => Colors and Fonts"{{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
-syntax enable
+syntax on
 
 colorscheme zenburn
 set background=dark
@@ -280,11 +280,6 @@ map <leader>bc :Bclose<cr>
 
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
-"}}}
-
-" => AutoComplPop {{{
-let g:acp_completeoptPreview = 1
-let g:acp_mappingDriven = 1
 "}}}
 
 " => Airline {{{

@@ -6,7 +6,7 @@ let mapleader = ","
 let g:mapleader = ","
 
 "closeWindows
-map <leader>ba :vsc Window.CloseAllDocuments<CR>
+map <leader>ba :vsc File.CloseAllButThis<CR>
 map <leader>bc :vsc Window.CloseDocumentWindow<CR>
 
 "go to resharper Highlights
@@ -24,8 +24,6 @@ nnoremap '' ''zz
 "switching tabs
 nnoremap <S-k> :vsc Window.NextTab<CR>
 nnoremap <S-j> :vsc Window.PreviousTab<CR>
-
-nnoremap <S-x> :vsc Window.CloseDocumentWindow<CR>
 
 "paste multiple times
 xnoremap p pgvy
