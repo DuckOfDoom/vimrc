@@ -30,5 +30,3 @@ xnoremap p pgvy
 
 "move screen to cursor when searching
 nmap <space> zz
-nmap n nzz
-nmap N Nz

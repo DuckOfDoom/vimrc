@@ -243,8 +243,6 @@ vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
 "move screen to cursor when searching
 nmap <space> zz
-nmap n nzz
-nmap N Nzz
 
 "buffers, tabs are for losers
 nnoremap <S-k> :bnext<CR>
