@@ -300,7 +300,9 @@ let g:ctrlp_open_new_file = 'v'
 " => NERDTree {{{
 let g:NERDTreeWinSize=50
 
-au VimEnter * NERDTree
+if has("gui_running")
+    au VimEnter * NERDTree
+endif
 " }}}
 
 " => Helper Functions "{{{
