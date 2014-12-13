@@ -365,7 +365,7 @@ endfunction
 " Comment Stuff
 function! Comment()
     let ext = tolower(expand('%:e'))
-    if (ext == 'hs')
+    if (ext == 'hs' || ext == 'lua')
         silent s:^:--:g
     elseif (ext == 'vim')
         silent s:^:\":g
@@ -378,7 +378,7 @@ endfunction
 
 function! Uncomment()
     let ext = tolower(expand('%:e'))
-    if (ext == 'hs')
+    if (ext == 'hs' || ext == 'lua')
         silent s:^\s*\--::g
     elseif (ext == 'vim')
         silent s:^\s*\"::g
