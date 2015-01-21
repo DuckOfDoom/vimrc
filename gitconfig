@@ -1,0 +1,34 @@
+[user]
+    name = Владимир Яновский
+    email = vladimir.yanovsky@towardsmars.com
+[core]
+    autocrlf = false
+    preloadindex = true
+    fscache = true
+[alias]
+    adc = !git add -A :/ && git status && git commit
+    sub = !git submodule update --init --remote --recursive --merge
+    lc = !git log -1 --pretty=%B
+    lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[diff]
+    tool = codecompare
+    guitool = codecompare
+[difftool]
+    prompt = false
+[merge]
+    tool = codecompare 
+[mergetool]
+    keepBackup = false
+[difftool "codecompare"]
+    cmd = 'C:/Program Files/Devart/Code Compare/CodeCompare.exe' \"$LOCAL\" \"$REMOTE\"
+    renames = true
+    prompt = false
+[mergetool "codecompare"]
+    cmd = 'C:/Program Files/Devart/Code Compare/CodeMerge.exe' -MF=\"$LOCAL\" -TF=\"$REMOTE\" -BF=\"$BASE\" -RF=\"$MERGED\"
+    trustExitCode = true
+[color]
+	ui = true
+[push]
+	default = simple
+[init]
+	templatedir = ~/.git-templates
