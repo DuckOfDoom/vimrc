@@ -114,7 +114,7 @@ if has("gui_running")
     set guioptions-=T
     set guioptions-=m
     set guioptions-=l
-    set guioptions-=r
+""    set guioptions-=r
     set guioptions-=b
     "    set guioptions+=e
     set t_Co=256
