@@ -5,11 +5,13 @@
     autocrlf = false
     preloadindex = true
     fscache = true
+    editor = vim
 [alias]
-    adc = !git add -A :/ && git status && git commit
-    sub = !git submodule update --init --remote --recursive --merge
-    lc = !git log -1 --pretty=%B
+    adc = !git lg -5 && git add -A :/ && git status && git commit
+    lcm = log -1 --pretty=%B
     lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    dt = diff-tree --no-commit-id --name-status -r
+    mrg = merge --no-commit --no-ff
 [diff]
     tool = codecompare
     guitool = codecompare
@@ -32,3 +34,7 @@
 	default = simple
 [init]
 	templatedir = ~/.git-templates
+[credential]
+    helper = wincred
+[help]
+	autocorrect = 1

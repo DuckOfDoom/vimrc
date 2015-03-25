@@ -21,8 +21,9 @@ set autoread
 let mapleader = ","
 let g:mapleader = ","
 
-" Fast saving
-nmap <leader>w :w!<cr>"}}}
+" Fast saving/quitting
+nmap <leader>w :w!<cr>
+nmap <leader>q :q!<cr>"}}}
 
 " => VIM user interface"{{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -105,12 +106,12 @@ set diffexpr=diff#MyDiff()
 " Enable syntax highlighting
 syntax on
 
-colorscheme zenburn
 set background=dark
 set guifont=Consolas:h10:cRUSSIAN::
 
 " Set extra options when running in GUI mode
 if has("gui_running")
+colorscheme codeschool
     set guioptions-=T
     set guioptions-=m
     set guioptions-=l
@@ -119,6 +120,8 @@ if has("gui_running")
     "    set guioptions+=e
     set t_Co=256
     set guitablabel=%M\ %t
+else
+    colorscheme zenburn
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
@@ -288,7 +291,7 @@ let g:airline#extensions#tabline#fnamemod = ':t' "Only filenames
 
 " => CtrlP  {{{
 " Start ctrlP in MRU mode 
-let g:ctrlp_cmd = 'CtrlPMRU'
+let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_open_new_file = 'v'
 
 "  t - in a new tab.
