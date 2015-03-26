@@ -111,7 +111,7 @@ set guifont=Consolas:h10:cRUSSIAN::
 
 " Set extra options when running in GUI mode
 if has("gui_running")
-colorscheme codeschool
+    colorscheme codeschool
     set guioptions-=T
     set guioptions-=m
     set guioptions-=l
@@ -291,7 +291,7 @@ let g:airline#extensions#tabline#fnamemod = ':t' "Only filenames
 
 " => CtrlP  {{{
 " Start ctrlP in MRU mode 
-let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_open_new_file = 'v'
 
 "  t - in a new tab.
