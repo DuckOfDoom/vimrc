@@ -272,7 +272,7 @@ map j gj
 map k gk
 
 " Disable highlight when <leader><cr> is pressed
-map <silent> <leader><cr> :noh<cr>
+map <silent><leader><cr> :noh<cr>
 
 " Close all the buffers but current
 map <leader>ba :BufOnly<cr>
