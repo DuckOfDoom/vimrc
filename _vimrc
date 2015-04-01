@@ -15,15 +15,7 @@ filetype indent on
 
 " Set to auto read when a file is changed from the outside
 set autoread
-
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
-let mapleader = ","
-let g:mapleader = ","
-
-" Fast saving/quitting
-nmap <leader>w :w!<cr>
-nmap <leader>q :q!<cr>"}}}
+"}}}
 
 " => VIM user interface"{{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -228,6 +220,15 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ 
 "}}}
 
 " => Keybindings {{{
+
+" With a map leader it's possible to do extra key combinations
+" like <leader>w saves the current file
+let mapleader = ","
+let g:mapleader = ","
+
+" Fast saving/quitting
+nmap <leader>w :w!<cr>
+nmap <leader>q :qa!<cr>"
 
 "Open the freakin vimrc!
 map <leader>vrc :vsplit $VIM\_vimrc<cr>
