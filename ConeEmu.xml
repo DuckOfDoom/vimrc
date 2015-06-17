@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2015-06-16 21:02:21" build="150111">
+		<key name=".Vanilla" modified="2015-06-17 20:09:14" build="150111">
 			<value name="StartType" type="hex" data="00"/>
 			<value name="CmdLine" type="string" data=""/>
 			<value name="StartTasksFile" type="string" data=""/>
@@ -144,10 +144,10 @@
 			<value name="UseCurrentSizePos" type="hex" data="01"/>
 			<value name="WindowMode" type="dword" data="0000051f"/>
 			<value name="ConWnd Width" type="dword" data="000000db"/>
-			<value name="ConWnd Height" type="dword" data="0000003c"/>
+			<value name="ConWnd Height" type="dword" data="0000003b"/>
 			<value name="Cascaded" type="hex" data="01"/>
-			<value name="ConWnd X" type="dword" data="0000002d"/>
-			<value name="ConWnd Y" type="dword" data="0000000b"/>
+			<value name="ConWnd X" type="dword" data="00000037"/>
+			<value name="ConWnd Y" type="dword" data="00000030"/>
 			<value name="16bit Height" type="dword" data="00000000"/>
 			<value name="AutoSaveSizePos" type="hex" data="01"/>
 			<value name="IntegralSize" type="hex" data="00"/>
@@ -552,18 +552,18 @@
 			<value name="DndLKey" type="hex" data="00"/>
 			<value name="DndRKey" type="hex" data="a2"/>
 			<value name="WndDragKey" type="dword" data="00121101"/>
-			<key name="Tasks" modified="2015-06-16 21:02:21" build="150111">
+			<key name="Tasks" modified="2015-06-17 20:09:14" build="150111">
 				<value name="Count" type="dword" data="00000008"/>
-				<key name="Task1" modified="2015-06-16 21:02:21" build="150111">
+				<key name="Task1" modified="2015-06-17 20:09:14" build="150111">
 					<value name="Name" type="string" data="{GIT}"/>
 					<value name="Flags" type="dword" data="00000001"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
-					<value name="GuiArgs" type="string" data="/dir &quot;D:\WORK&quot;"/>
+					<value name="GuiArgs" type="string" data=""/>
 					<value name="Cmd1" type="string" data="&quot;%ProgramFiles(x86)%\Git\bin\sh.exe&quot; --login -i -new_console:C:&quot;%ProgramFiles% (x86)\Git\etc\git.ico&quot;"/>
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
 				</key>
-				<key name="Task2" modified="2015-06-16 21:02:21" build="150111">
+				<key name="Task2" modified="2015-06-17 20:09:14" build="150111">
 					<value name="Name" type="string" data="{cmd}"/>
 					<value name="Flags" type="dword" data="00000000"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -572,7 +572,7 @@
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
 				</key>
-				<key name="Task3" modified="2015-06-16 21:02:21" build="150111">
+				<key name="Task3" modified="2015-06-17 20:09:14" build="150111">
 					<value name="Name" type="string" data="{cmd (Admin)}"/>
 					<value name="Flags" type="dword" data="00000000"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -581,7 +581,7 @@
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
 				</key>
-				<key name="Task4" modified="2015-06-16 21:02:21" build="150111">
+				<key name="Task4" modified="2015-06-17 20:09:14" build="150111">
 					<value name="Name" type="string" data="{PowerShell}"/>
 					<value name="Flags" type="dword" data="00000000"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -590,7 +590,7 @@
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
 				</key>
-				<key name="Task5" modified="2015-06-16 21:02:21" build="150111">
+				<key name="Task5" modified="2015-06-17 20:09:14" build="150111">
 					<value name="Name" type="string" data="{PowerShell (Admin)}"/>
 					<value name="Flags" type="dword" data="00000000"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -599,7 +599,7 @@
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
 				</key>
-				<key name="Task6" modified="2015-06-16 21:02:21" build="150111">
+				<key name="Task6" modified="2015-06-17 20:09:15" build="150111">
 					<value name="Name" type="string" data="{cmd 64/32}"/>
 					<value name="Flags" type="dword" data="00000000"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -609,7 +609,7 @@
 					<value name="Active" type="dword" data="00000001"/>
 					<value name="Count" type="dword" data="00000002"/>
 				</key>
-				<key name="Task7" modified="2015-06-16 21:02:21" build="150111">
+				<key name="Task7" modified="2015-06-17 20:09:15" build="150111">
 					<value name="Name" type="string" data="{Show ANSI colors}"/>
 					<value name="Flags" type="dword" data="00000000"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -618,7 +618,7 @@
 					<value name="Active" type="dword" data="00000000"/>
 					<value name="Count" type="dword" data="00000001"/>
 				</key>
-				<key name="Task8" modified="2015-06-16 21:02:21" build="150111">
+				<key name="Task8" modified="2015-06-17 20:09:15" build="150111">
 					<value name="Name" type="string" data="{Chocolatey (Admin)}"/>
 					<value name="Flags" type="dword" data="00000000"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -628,10 +628,10 @@
 					<value name="Count" type="dword" data="00000001"/>
 				</key>
 			</key>
-			<key name="Apps" modified="2015-06-16 21:02:21" build="150111">
+			<key name="Apps" modified="2015-06-17 20:09:15" build="150111">
 				<value name="Count" type="dword" data="00000000"/>
 			</key>
-			<key name="Colors" modified="2015-06-16 21:02:21" build="150111">
+			<key name="Colors" modified="2015-06-17 20:09:15" build="150111">
 				<value name="Count" type="dword" data="00000000"/>
 			</key>
 		</key>

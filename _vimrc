@@ -59,6 +59,9 @@ set hlsearch
 " Makes search act like search in modern browsers
 set incsearch
 
+"completion options
+set completeopt=longest,menuone
+
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
 
@@ -74,7 +77,6 @@ set mat=2
 " No annoying sound on errors
 set noerrorbells
 set novisualbell
-set t_vb=
 set tm=500"
 
 "-----BEGIN Save/Restore Window Size/Position - autooad/screensize.vim-----
@@ -103,11 +105,11 @@ set guifont=Consolas:h10:cRUSSIAN::
 
 " Set extra options when running in GUI mode
 if has("gui_running")
-    colorscheme codeschool
+    colorscheme zenburn
     set guioptions-=T
     set guioptions-=m
     set guioptions-=l
-""    set guioptions-=r
+    ""    set guioptions-=r
     set guioptions-=b
     "    set guioptions+=e
     set t_Co=256
@@ -220,67 +222,68 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ 
 "}}}
 
 " => Keybindings {{{
-
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
 let mapleader = ","
 let g:mapleader = ","
 
-" Fast saving/quitting
+"navigating NERDTree to current file
+map <leader>nt :NERDTreeFind<CR>
+
+"save and quit
 nmap <leader>w :w!<cr>
 nmap <leader>q :qa!<cr>"
 
-"Open the freakin vimrc!
+"open vimrc
 map <leader>vrc :vsplit $VIM\_vimrc<cr>
 
-"paste multiple times
+"paste multiple lines
 xnoremap p pgvy
 
-"format whole file code
+"reformat code
 noremap <C-k><C-d> gg=G''zz
 
-" Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
+"moving blocks of text
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
 vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
-"move screen to cursor when searching
-nmap <space> zz
 
-"buffers, tabs are for losers
+"buffers
 nnoremap <S-k> :bnext<CR>
 nnoremap <S-j> :bprevious<CR>
+map <leader>ba :BufOnly<cr>
+map <leader>bc :Bclose<cr>
 
-"navigating windows
+"window commands
 nnoremap <A-j> :wincmd h<CR>
 nnoremap <A-k> :wincmd l<CR>
 nnoremap <A-h> :wincmd j<CR>
 nnoremap <A-l> :wincmd k<CR>
+nnoremap <leader>wc :close<CR>
+nnoremap <leader>wn :vnew<CR>
 
-"join lines is now here!
+"joining lnes
 nnoremap <C-j> :join<CR>
 
-"center screen when returning the cursor to last position
+"centering screen on cursor
+nmap <space> zz
 nnoremap '' ''zz
 
-"Comments
+"completion (http://vim.wikia.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE)
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
 map <C-k><C-c> :call Comment()<CR>
 map <C-k><C-u> :call Uncomment()<CR>
 
-" Treat long lines as break lines (useful when moving around in them)
 map j gj
 map k gk
 
-" Disable highlight when <leader><cr> is pressed
 map <silent><leader><cr> :noh<cr>
 
-" Close all the buffers but current
-map <leader>ba :BufOnly<cr>
-":1,1000 bd!<cr>
-map <leader>bc :Bclose<cr>
-
-" Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 "}}}
 

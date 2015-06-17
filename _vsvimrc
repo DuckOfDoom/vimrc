@@ -5,16 +5,28 @@ set backspace=indent,eol,start
 let mapleader = ","
 let g:mapleader = ","
 
-"closeWindows
 map <leader>ba :vsc File.CloseAllButThis<CR>
 map <leader>bc :vsc Window.CloseDocumentWindow<CR>
 
-"go to resharper Highlights
-nnoremap <A-j> :vsc ReSharper.Resharper_GotoNextHighlight<CR>
-nnoremap <A-k> :vsc ReSharper.Resharper_GotoPrevHighlight<CR>
+"vs commands
+map <leader>fr :vsc Edit.FindAllReferences<CR>
+map <leader>gb :vsc ReSharper.ReSharper_GotoBase<CR>
+map <leader>gi :vsc ReSharper.ReSharper_GotoInheritors<CR>
+map <leader>pd :vsc Edit.PeekDefinition<CR>
+map <leader>gd :vsc Edit.GoToDefinition<CR>
+map <leader>fu :vsc ReSharper.ReSharper_GotoUsage<CR>
+map <leader>nt :vsc SolutionExplorer.SyncWithActiveDocument<CR>
 
-"go to type via ctrl+p
+"refactoring
+map <leader>r  :vsc ReSharper.ReSharper_Rename<CR>
+map <leader>em :vsc ReSharper.ReSharper_ExtractMethod<CR>
+
+map <A-j> :vsc ReSharper.Resharper_GotoNextHighlight<CR>
+map <A-k> :vsc ReSharper.Resharper_GotoPrevHighlight<CR>
+
 nnoremap <C-p> :vsc ReSharper.ReSharper_GotoType<CR>
+
+map <C-n> :vsc Edit.LineDown<CR>
 
 "join lines is now here!
 nnoremap <C-j> :join<CR>

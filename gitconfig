@@ -5,8 +5,10 @@
     autocrlf = false
     preloadindex = true
     fscache = true
-    editor = vim
+    editor = Vim
+    ignorecase = false
 [alias]
+    bclean = "!f() { git remote prune origin && git branch --merged develop | grep -v -e "develop" -e "master" | xargs -r git branch -d;}; f"
     adc = !git lg -5 && git add -A :/ && git status && git commit
     lcm = log -1 --pretty=%B
     lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
