@@ -170,6 +170,8 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 set nobackup
 set nowb
 set noswapfile
+set splitright
+set splitbelow
 
 " Automatically switch CWD to current file location (for NERDTree and stuff)
 set autochdir
@@ -241,6 +243,7 @@ xnoremap p pgvy
 "reformat code
 noremap <C-k><C-d> gg=G''zz
 
+
 "moving blocks of text
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
@@ -251,16 +254,16 @@ vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 "buffers
 nnoremap <S-k> :bnext<CR>
 nnoremap <S-j> :bprevious<CR>
-map <leader>ba :BufOnly<cr>
-map <leader>bc :Bclose<cr>
+nmap <leader>ba :BufOnly<cr>
+nmap <leader>bc :Bclose<cr>
 
 "window commands
 nnoremap <A-j> :wincmd h<CR>
 nnoremap <A-k> :wincmd l<CR>
 nnoremap <A-h> :wincmd j<CR>
 nnoremap <A-l> :wincmd k<CR>
-nnoremap <leader>wc :close<CR>
-nnoremap <leader>wn :vnew<CR>
+nmap <leader>wc :close<CR>
+nmap <leader>wn :vnew<CR>
 
 "joining lnes
 nnoremap <C-j> :join<CR>
