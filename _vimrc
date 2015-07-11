@@ -156,6 +156,9 @@ set number "Show line numbers
 "Dont jump to closing parenthesis when inserted - help: pi_paren.txt
 let loaded_matchparen = 1 
 
+"Dont insert comments
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 " => Visual mode related 
 """"""""""""""""""""""""""""""
 " Visual mode pressing * or # searches for the current selection
@@ -379,7 +382,7 @@ function! Comment()
         silent s:^:--:g
     elseif (ext == 'vim')
         silent s:^:\":g
-    elseif (ext == 'rb' || ext =='yml')
+    elseif (ext == 'rb' || ext =='yml' || ext == 'erb')
         silent s:^:#:g
     else
         silent s:^:\/\/:g
@@ -392,7 +395,7 @@ function! Uncomment()
         silent s:^\s*\--::g
     elseif (ext == 'vim')
         silent s:^\s*\"::g
-    elseif (ext == 'rb' || ext == 'yml')
+    elseif (ext == 'rb' || ext =='yml' || ext == 'erb')
         silent s:^\s*\#::g
     else
         silent s:^\s*\/\/::g
