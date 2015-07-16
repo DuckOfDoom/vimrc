@@ -105,7 +105,7 @@ set guifont=Consolas:h10:cRUSSIAN::
 
 " Set extra options when running in GUI mode
 if has("gui_running")
-    colorscheme zenburn
+    colorscheme base16-eighties
     set guioptions-=T
     set guioptions-=m
     set guioptions-=l
