@@ -246,7 +246,6 @@ xnoremap p pgvy
 "reformat code
 noremap <C-k><C-d> gg=G''zz
 
-
 "moving blocks of text
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z

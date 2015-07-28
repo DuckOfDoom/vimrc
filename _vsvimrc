@@ -31,8 +31,6 @@ map <C-n> :vsc Edit.LineDown<CR>
 "join lines is now here!
 nnoremap <C-j> :join<CR>
 
-nnoremap '' ''zz
-
 "switching tabs
 nnoremap <S-k> :vsc Window.NextTab<CR>
 nnoremap <S-j> :vsc Window.PreviousTab<CR>
