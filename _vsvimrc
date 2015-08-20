@@ -28,8 +28,12 @@ nnoremap <C-p> :vsc ReSharper.ReSharper_GotoType<CR>
 
 map <C-n> :vsc Edit.LineDown<CR>
 
-"join lines is now here!
-nnoremap <C-j> :join<CR>
+nnoremap <C-k> :vsc ReSharper.ReSharper_GotoPrevMethod<CR>
+nnoremap <C-j> :vsc ReSharper.ReSharper_GotoNextMethod<CR>
+
+nnoremap '' :vsc View.NavigateBackward<CR>
+
+nnoremap <C-S-j> :join<CR>
 
 "switching tabs
 nnoremap <S-k> :vsc Window.NextTab<CR>

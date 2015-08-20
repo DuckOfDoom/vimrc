@@ -15,6 +15,8 @@ filetype indent on
 
 " Set to auto read when a file is changed from the outside
 set autoread
+
+:set noundofile
 "}}}
 
 " => VIM user interface"{{{
