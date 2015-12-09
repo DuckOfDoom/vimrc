@@ -28,8 +28,8 @@ nnoremap <C-p> :vsc ReSharper.ReSharper_GotoType<CR>
 
 map <C-n> :vsc Edit.LineDown<CR>
 
-nnoremap <C-k> :vsc ReSharper.ReSharper_GotoPrevMethod<CR>
-nnoremap <C-j> :vsc ReSharper.ReSharper_GotoNextMethod<CR>
+nnoremap <A-S-k> :vsc ReSharper.ReSharper_GotoPrevMethod<CR>
+nnoremap <A-S-j> :vsc ReSharper.ReSharper_GotoNextMethod<CR>
 
 nnoremap '' :vsc View.NavigateBackward<CR>
 
