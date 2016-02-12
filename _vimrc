@@ -385,6 +385,8 @@ function! Comment()
         silent s:^:\":g
     elseif (ext == 'rb' || ext =='yml' || ext == 'erb')
         silent s:^:#:g
+    elseif (ext == 'clj')
+        silent s:^:;;:g
     else
         silent s:^:\/\/:g
     endif
@@ -398,6 +400,8 @@ function! Uncomment()
         silent s:^\s*\"::g
     elseif (ext == 'rb' || ext =='yml' || ext == 'erb')
         silent s:^\s*\#::g
+    elseif (ext == 'clj')
+        silent s:^\s*\;;::g
     else
         silent s:^\s*\/\/::g
     endif
