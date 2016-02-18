@@ -156,7 +156,7 @@ set wrap "Wrap lines
 set number "Show line numbers
 
 "Dont jump to closing parenthesis when inserted - help: pi_paren.txt
-let loaded_matchparen = 1 
+"let loaded_matchparen = 0
 
 "Dont insert comments
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -246,7 +246,8 @@ map <leader>vrc :vsplit $VIM\_vimrc<cr>
 xnoremap p pgvy
 
 "reformat code
-noremap <C-k><C-d> gg=G''zz
+noremap <C-k><C-d> gg=G''
+vnoremap <C-k><C-d> =
 
 "moving blocks of text
 nmap <M-j> mz:m+<cr>`z
