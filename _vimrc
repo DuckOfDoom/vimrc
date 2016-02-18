@@ -246,15 +246,8 @@ map <leader>vrc :vsplit $VIM\_vimrc<cr>
 xnoremap p pgvy
 
 "reformat code
-noremap <C-k><C-d> gg=G''
+noremap <C-k><C-d> mqHmwgg=G`wzt`q 
 vnoremap <C-k><C-d> =
-
-"moving blocks of text
-nmap <M-j> mz:m+<cr>`z
-nmap <M-k> mz:m-2<cr>`z
-vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
-
 
 "buffers
 nnoremap <S-k> :bnext<CR>
