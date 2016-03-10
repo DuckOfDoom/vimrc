@@ -105,6 +105,8 @@ syntax on
 set background=dark
 set guifont=Consolas:h10:cRUSSIAN::
 
+let g:rainbow_active = 1
+
 " Set extra options when running in GUI mode
 if has("gui_running")
     colorscheme base16-eighties
