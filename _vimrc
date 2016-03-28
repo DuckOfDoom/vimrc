@@ -236,6 +236,7 @@ let g:mapleader = ","
 
 "navigating NERDTree to current file
 map <leader>nt :NERDTreeFind<CR>
+map <leader>p :call PareditToggle()<CR>
 
 "save and quit
 nmap <leader>w :w!<cr>
