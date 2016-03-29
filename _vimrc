@@ -219,6 +219,10 @@ autocmd VimEnter * nested if
 
 " Remember info about open buffers on close
 set viminfo^=%"
+
+" Folding settings for *.clj files
+let g:clojure_dont_fold_blank_lines = 1
+let g:clojure_auto_open_folds = 1
 "}}}
 
 " => Status line {{{
