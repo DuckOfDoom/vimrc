@@ -295,6 +295,15 @@ map <silent><leader><cr> :noh<cr>
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 "}}}
 
+" => Tabular {{{
+"haskell
+let g:haskell_tabular = 1
+
+vmap a= :Tabularize /=<CR>
+vmap a; :Tabularize /::<CR>
+vmap a- :Tabularize /-><CR>
+"}}}
+
 " => Airline {{{
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_enable_syntastic=1 
