@@ -18,6 +18,11 @@ if !exists('g:ruby_indent_access_modifier_style')
   let g:ruby_indent_access_modifier_style = 'normal'
 endif
 
+if !exists('g:ruby_indent_block_style')
+  " Possible values: "expression", "do"
+  let g:ruby_indent_block_style = 'expression'
+endif
+
 setlocal nosmartindent
 
 " Now, set up our indentation expression and keys that trigger it.
@@ -123,7 +128,7 @@ let s:indent_access_modifier_regex = '\C^\s*\%(protected\|private\)\s*\%(#.*\)\=
 " The reason is that the pipe matches a hanging "|" operator.
 "
 let s:block_regex =
-      \ '\%(\<do:\@!\>\|%\@<!{\)\s*\%(|\s*(*\s*\%([*@&]\=\h\w*,\=\s*\)\%(,\s*(*\s*[*@&]\=\h\w*\s*)*\s*\)*|\)\=\s*\%(#.*\)\=$'
+      \ '\%(\<do:\@!\>\|%\@<!{\)\s*\%(|[^|]*|\)\=\s*\%(#.*\)\=$'
 
 let s:block_continuation_regex = '^\s*[^])}\t ].*'.s:block_regex
 
@@ -217,15 +222,15 @@ function s:GetMSL(lnum)
     elseif s:Match(lnum, s:non_bracket_continuation_regex) &&
           \ (s:Match(msl, s:bracket_continuation_regex) || s:Match(msl, s:block_continuation_regex))
       " If the current line is a bracket continuation or a block-starter, but
-      " the previous is a non-bracket one, respect the previous' indentation,
-      " and stop here.
+      " the previous is a non-bracket one, keep going to see if the previous
+      " line is a part of another continuation.
       "
       " Example:
       "   method_call one,
       "     two {
       "     three
       "
-      return lnum
+      let msl = lnum
     elseif s:Match(lnum, s:bracket_continuation_regex) &&
           \ (s:Match(msl, s:bracket_continuation_regex) || s:Match(msl, s:block_continuation_regex))
       " If both lines are bracket continuations (the current may also be a
@@ -369,6 +374,13 @@ function GetRubyIndent(...)
   " 3.1. Setup {{{2
   " ----------
 
+  " The value of a single shift-width
+  if exists('*shiftwidth')
+    let sw = shiftwidth()
+  else
+    let sw = &sw
+  endif
+
   " For the current line, use the first argument if given, else v:lnum
   let clnum = a:0 ? a:1 : v:lnum
 
@@ -388,7 +400,7 @@ function GetRubyIndent(...)
     if s:Match(clnum, s:access_modifier_regex)
       let class_line = s:FindContainingClass()
       if class_line > 0
-        return indent(class_line) + &sw
+        return indent(class_line) + sw
       endif
     endif
   elseif g:ruby_indent_access_modifier_style == 'outdent'
@@ -410,7 +422,9 @@ function GetRubyIndent(...)
     if searchpair(escape(bs[0], '\['), '', bs[1], 'bW', s:skip_expr) > 0
       if line[col-1]==')' && col('.') != col('$') - 1
         let ind = virtcol('.') - 1
-      else
+      elseif g:ruby_indent_block_style == 'do'
+        let ind = indent(line('.'))
+      else " g:ruby_indent_block_style == 'expression'
         let ind = indent(s:GetMSL(line('.')))
       endif
     endif
@@ -433,10 +447,17 @@ function GetRubyIndent(...)
 
       if strpart(line, 0, col('.') - 1) =~ '=\s*$' &&
             \ strpart(line, col('.') - 1, 2) !~ 'do'
+        " assignment to case/begin/etc, on the same line, hanging indent
         let ind = virtcol('.') - 1
+      elseif g:ruby_indent_block_style == 'do'
+        " align to line of the "do", not to the MSL
+        let ind = indent(line('.'))
       elseif getline(msl) =~ '=\s*\(#.*\)\=$'
+        " in the case of assignment to the MSL, align to the starting line,
+        " not to the MSL
         let ind = indent(line('.'))
       else
+        " align to the MSL
         let ind = indent(msl)
       endif
     endif
@@ -458,7 +479,7 @@ function GetRubyIndent(...)
 
   " If the current line starts with a leading operator, add a level of indent.
   if s:Match(clnum, s:leading_operator_regex)
-    return indent(s:GetMSL(clnum)) + &sw
+    return indent(s:GetMSL(clnum)) + sw
   endif
 
   " 3.3. Work on the previous line. {{{2
@@ -485,23 +506,35 @@ function GetRubyIndent(...)
     " If the previous line was a private/protected keyword, add a
     " level of indent.
     if s:Match(lnum, s:indent_access_modifier_regex)
-      return indent(lnum) + &sw
+      return indent(lnum) + sw
     endif
   elseif g:ruby_indent_access_modifier_style == 'outdent'
     " If the previous line was a private/protected/public keyword, add
     " a level of indent, since the keyword has been out-dented.
     if s:Match(lnum, s:access_modifier_regex)
-      return indent(lnum) + &sw
+      return indent(lnum) + sw
     endif
   endif
 
   if s:Match(lnum, s:continuable_regex) && s:Match(lnum, s:continuation_regex)
-    return indent(s:GetMSL(lnum)) + &sw + &sw
+    return indent(s:GetMSL(lnum)) + sw + sw
   endif
 
   " If the previous line ended with a block opening, add a level of indent.
   if s:Match(lnum, s:block_regex)
-    return indent(s:GetMSL(lnum)) + &sw
+    let msl = s:GetMSL(lnum)
+
+    if g:ruby_indent_block_style == 'do'
+      " don't align to the msl, align to the "do"
+      let ind = indent(lnum) + sw
+    elseif getline(msl) =~ '=\s*\(#.*\)\=$'
+      " in the case of assignment to the msl, align to the starting line,
+      " not to the msl
+      let ind = indent(lnum) + sw
+    else
+      let ind = indent(msl) + sw
+    endif
+    return ind
   endif
 
   " If the previous line started with a leading operator, use its MSL's level
@@ -512,7 +545,7 @@ function GetRubyIndent(...)
 
   " If the previous line ended with the "*" of a splat, add a level of indent
   if line =~ s:splat_regex
-    return indent(lnum) + &sw
+    return indent(lnum) + sw
   endif
 
   " If the previous line contained unclosed opening brackets and we are still
@@ -527,22 +560,22 @@ function GetRubyIndent(...)
     if opening.pos != -1
       if opening.type == '(' && searchpair('(', '', ')', 'bW', s:skip_expr) > 0
         if col('.') + 1 == col('$')
-          return ind + &sw
+          return ind + sw
         else
           return virtcol('.')
         endif
       else
         let nonspace = matchend(line, '\S', opening.pos + 1) - 1
-        return nonspace > 0 ? nonspace : ind + &sw
+        return nonspace > 0 ? nonspace : ind + sw
       endif
     elseif closing.pos != -1
       call cursor(lnum, closing.pos + 1)
       normal! %
 
       if s:Match(line('.'), s:ruby_indent_keywords)
-        return indent('.') + &sw
+        return indent('.') + sw
       else
-        return indent('.')
+        return indent(s:GetMSL(line('.')))
       endif
     else
       call cursor(clnum, vcol)
@@ -569,7 +602,7 @@ function GetRubyIndent(...)
   let col = s:Match(lnum, s:ruby_indent_keywords)
   if col > 0
     call cursor(lnum, col)
-    let ind = virtcol('.') - 1 + &sw
+    let ind = virtcol('.') - 1 + sw
     " TODO: make this better (we need to count them) (or, if a searchpair
     " fails, we know that something is lacking an end and thus we indent a
     " level
@@ -606,9 +639,9 @@ function GetRubyIndent(...)
   " TODO: this does not take into account contrived things such as
   " module Foo; class Bar; end
   if s:Match(lnum, s:ruby_indent_keywords)
-    let ind = msl_ind + &sw
+    let ind = msl_ind + sw
     if s:Match(lnum, s:end_end_regex)
-      let ind = ind - &sw
+      let ind = ind - sw
     endif
     return ind
   endif
@@ -617,7 +650,7 @@ function GetRubyIndent(...)
   " closing bracket, indent one extra level.
   if s:Match(lnum, s:non_bracket_continuation_regex) && !s:Match(lnum, '^\s*\([\])}]\|end\)')
     if lnum == p_lnum
-      let ind = msl_ind + &sw
+      let ind = msl_ind + sw
     else
       let ind = msl_ind
     endif

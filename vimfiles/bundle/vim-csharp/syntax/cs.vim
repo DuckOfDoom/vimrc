@@ -2,7 +2,6 @@
 " Language:             Microsoft C#
 " Maintainer:           Kian Ryan (kian@orangetentacle.co.uk)
 " Former Maintainer:    Anduin Withers (awithers@anduin.com)
-" Last Change:          2012 Sep 22
 " Filenames:            *.cs
 "
 " REFERENCES:
@@ -25,8 +24,9 @@ syn keyword csInterfaceDecleration      interface nextgroup=csIface skipwhite
 syn keyword csRepeat			break continue do for foreach goto return while
 syn keyword csConditional		else if switch
 syn keyword csLabel			case default
-" there's no :: operator in C#
+" :: is usually an error in C#, except for the special case of "global::"
 syn match csOperatorError		display +::+
+syn match csGlobal          display +global::+
 " user labels (see [1] 8.6 Statements)
 syn match   csLabel			display +^\s*\I\i*\s*:\([^:]\)\@=+
 " modifier
@@ -64,12 +64,12 @@ syn keyword csNewDecleration            new nextgroup=csClass skipwhite
 "Interface  & Class Identifier
 syn match csClass contained       /\<[A-Z][a-z]\w\+/ nextgroup=csGeneric
 syn match csIface contained       /\<I[A-Z][a-z]\w\+/ nextgroup=csGeneric
-syn region csGeneric start="<" end=">" contains=csIface,csClass
-syn region csEnclosed start="(" end=")" contains=csConstant,csType,csString, csCharacter, csNumber,csIface,csClass
+" syn region csGeneric start="<" end=">" contains=csIface,csClass
+syn region csEnclosed start="(" end=")" contains=csConstant,csType,csString, csVerbatimString, csCharacter, csNumber,csIface,csClass,csUnspecifiedStatement
 "syn region csInherits start=":" end="{" contains=csIface,csClass
 
 " Attributes
-syn region csAttributeLine start="^\s*\[" end="\]\s*$" contains=csString, csCharacter, csNumber, csType
+syn region csAttribute start="^\s*\[" end="\]\s*" contains=csString, csVerbatimString, csCharacter, csNumber, csType
 
 
 " Comments
@@ -152,6 +152,7 @@ hi def link csLinq                      Keyword
 hi def link csAsync                     Keyword
 hi def link csContextualStatement	Statement
 hi def link csOperatorError		Error
+hi def link csAttribute			PreProc
 
 hi def link csIface                     Type
 hi def link csClass                     Type

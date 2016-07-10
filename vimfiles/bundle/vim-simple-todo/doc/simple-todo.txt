@@ -11,7 +11,8 @@ Manage todo lists. Really simple.                                *simple-todo*
 
     1. Intro.................................|simple-todo-into|
     2. Mappings..............................|simple-todo-maps|
-    3. Contributing..........................|simple-todo-contrib|
+    3. Customization.........................|simple-todo-customization|
+    4. Contributing..........................|simple-todo-contrib|
 
 ==============================================================================
 1. Intro                                                    *simple-todo-into*
@@ -27,8 +28,8 @@ https://github.com/blog/1375-task-lists-in-gfm-issues-pulls-comments
 ==============================================================================
 2. Mappings                                                 *simple-todo-maps*
 
-Plugin exposes some <Plug> maps. These maps are available for normal and
-insert modes.
+Plugin exposes some <Plug> maps. These maps are available for normal, visual
+and insert modes.
 
 To completely disable default key bindings (which is pretty handy) use:
 >
@@ -37,6 +38,10 @@ let g:simple_todo_map_keys = 0
                                                      *<Plug>(simple-todo-new)*
 <Plug>(simple-todo-new)
 <leader>i                   Create a new item
+
+                                       *<Plug>(simple-todo-new-start-of-line)*
+<Plug>(simple-todo-new-start-of-line)
+<leader>I                   Create a new item at the start of this line
 
                                                    *<Plug>(simple-todo-below)*
 <Plug>(simple-todo-below)
@@ -54,10 +59,27 @@ let g:simple_todo_map_keys = 0
 <Plug>(simple-todo-mark-as-undone)
 <leader>X                   Mark item under cursor as undone
 
-==============================================================================
-3. Contributing                                          *simple-todo-contrib*
+                                           *<Plug>(simple-todo-new-list-item)*
+<Plug>(simple-todo-new-list-item)
+                            Create a new item with list symbol prefix
 
-Don't hesitate to create a new GitHub Issue for any bug or suggestion:
+==============================================================================
+3. Customization                                   *simple-todo-customization*
+
+The default tick symbol `x` can be changed by defining:
+
+>
+let g:simple_todo_tick_symbol = 'y'
+
+You may also change the list symbol `-` by defining:
+
+let g:simple_todo_list_symbol = '*'
+<
+
+==============================================================================
+4. Contributing                                          *simple-todo-contrib*
+
+Don’t hesitate to create a new GitHub Issue for any bug or suggestion:
 
 https://github.com/vitalk/vim-simple-todo/issues
 
