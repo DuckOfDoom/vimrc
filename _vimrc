@@ -246,6 +246,9 @@ map <leader>p :call PareditToggle()<CR>
 nmap <leader>w :w!<cr>
 nmap <leader>q :qa!<cr>"
 
+"insert lines
+vmap <leader>l :g/.\n\n\@!/norm o<cr>:noh<cr>
+
 "open vimrc
 map <leader>vrc :vsplit $VIM\_vimrc<cr>
 
