@@ -467,7 +467,7 @@ function! Comment()
         silent s:^:--:g
     elseif (ext == 'vim')
         silent s:^:\":g
-    elseif (ext == 'rb' || ext =='yml' || ext == 'erb' || ext == 'py')
+    elseif (ext == 'rb' || ext =='yml' || ext == 'erb' || ext == 'py' || ext == 'sh')
         silent s:^:#:g
     elseif (ext == 'clj')
         silent s:^:;;:g
@@ -482,7 +482,7 @@ function! Uncomment()
         silent s:^\s*\--::g
     elseif (ext == 'vim')
         silent s:^\s*\"::g
-    elseif (ext == 'rb' || ext =='yml' || ext == 'erb' || ext == 'py')
+    elseif (ext == 'rb' || ext =='yml' || ext == 'erb' || ext == 'py' || ext == 'sh')
         silent s:^\s*\#::g
     elseif (ext == 'clj')
         silent s:^\s*\;;::g
@@ -491,3 +491,4 @@ function! Uncomment()
     endif
 endfunction
 "}}}
+
