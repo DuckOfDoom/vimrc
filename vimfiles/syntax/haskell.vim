@@ -233,7 +233,7 @@ sy match hsQQVarIDNew "\[\(.\&[^|]\)*|" contained
 sy region hsQuotation matchgroup=hsQuotationBrackets start="\[[edtp]\?|" end="|\]" contains=TOP transparent fold
 
 " Debugging functions from the standard prelude.
-syn keyword hsDebug undefined error trace
+syn keyword hsDebug undefined error trace traceIO
 
 
 " C Preprocessor directives. Shamelessly ripped from c.vim and trimmed
