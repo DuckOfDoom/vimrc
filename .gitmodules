@@ -58,3 +58,6 @@
 [submodule "vimfiles/bundle/vim-gradle"]
 	path = vimfiles/bundle/vim-gradle
 	url = https://github.com/tfnico/vim-gradle.git
+[submodule "vimfiles/bundle/vim-indent-guides"]
+	path = vimfiles/bundle/vim-indent-guides
+	url = https://github.com/nathanaelkane/vim-indent-guides.git
