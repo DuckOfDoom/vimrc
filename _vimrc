@@ -302,6 +302,11 @@ vmap a; :Tabularize /::<CR>
 vmap a- :Tabularize /-><CR>
 "}}}
 
+" => EasyAlign {{{
+nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
+"}}}
+
 " => Airline {{{
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_enable_syntastic=1 
