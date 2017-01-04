@@ -326,6 +326,7 @@ let g:ctrlp_open_new_file = 'v'
 
 " => NERDTree {{{
 let g:NERDTreeWinSize=50
+let g:NERDTreeCascadeSingleChildDir=0
 
 if has("gui_running")
     au VimEnter * NERDTree
