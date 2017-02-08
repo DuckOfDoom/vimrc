@@ -1,6 +1,6 @@
 [user]
-    name = Владимир Яновский
-    email = vladimir.yanovsky@towardsmars.com
+    name = Vladimir Yanovsky
+    email = horaxlfa@gmail.com
 [core]
     autocrlf = false
     preloadindex = true
@@ -14,15 +14,17 @@
     lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     dt = diff-tree --no-commit-id --name-status -r
     mrg = merge --no-commit --no-ff
+    av = add -Av
 [difftool]
     prompt = false
 [mergetool]
     keepBackup = false
+        prompt = false
 [color]
-	ui = true
+    ui = true
 [push]
-	default = simple
+    default = simple
 [credential]
     helper = wincred
 [help]
-	autocorrect = 1
+    autocorrect = 2
