@@ -1,5 +1,4 @@
 set nocompatible
-source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 behave mswin
 execute pathogen#infect()
@@ -111,7 +110,6 @@ let g:rainbow_active = 1
 
 " Set extra options when running in GUI mode
 if has("gui_running")
-    colorscheme base16-eighties
     set guioptions-=T
     set guioptions-=m
     set guioptions-=l
@@ -120,24 +118,22 @@ if has("gui_running")
     "    set guioptions+=e
     set t_Co=256
     set guitablabel=%M\ %t
-else
-    colorscheme base16-eighties
 endif
+
+colorscheme base16-eighties
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 
 " Use Unix as the standard file type
-set ffs=unix,dos,mac
+set fileformat=unix
+set fileformats=unix,dos
 "}}}
 
 " => Text, tab and indent related"{{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
 set expandtab
-
-set ffs=dos,unix
-set ff=dos
 
 " Auto fold stuff
 set foldenable
@@ -259,7 +255,11 @@ nmap <leader>q :qa!<cr>"
 vmap <leader>l :g/.\n\n\@!/norm o<cr>:noh<cr>
 
 "open vimrc
-map <leader>vrc :vsplit $VIM\_vimrc<cr>
+if has("win32")
+   map <leader>vrc :vsplit $VIM\_vimrc<cr>
+else 
+   map <leader>vrc :vsplit $VIM/vimrc<cr>
+endif
 
 "paste multiple lines
 xnoremap p pgvy
