@@ -1,6 +1,9 @@
 set expandtab
 set shiftwidth=2
 
+let g:haskellmode_completion_ghc = 0
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
 map <C-k><C-s> :%!stylish-haskell<CR>
 
 " haskell-specific delimiters for EasyAlign
