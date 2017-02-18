@@ -5,7 +5,7 @@
     autocrlf = false
     preloadindex = true
     fscache = true
-    editor = Vim
+    editor = vim
     ignorecase = false
 [alias]
     bclean = "!f() { git remote prune origin && git branch --merged develop | grep -v -e "develop" -e "master" | xargs -r git branch -d;}; f"
@@ -19,7 +19,7 @@
     prompt = false
 [mergetool]
     keepBackup = false
-        prompt = false
+    prompt = false
 [color]
     ui = true
 [push]
