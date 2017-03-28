@@ -9,13 +9,15 @@ map <leader>ba :vsc File.CloseAllButThis<CR>
 map <leader>bc :vsc Window.CloseDocumentWindow<CR>
 
 "vs commands
-map <leader>fr :vsc Edit.FindAllReferences<CR>
-map <leader>gb :vsc ReSharper.ReSharper_GotoBase<CR>
-map <leader>gi :vsc ReSharper.ReSharper_GotoInheritors<CR>
-map <leader>pd :vsc Edit.PeekDefinition<CR>
-map <leader>gd :vsc Edit.GoToDefinition<CR>
-map <leader>fu :vsc ReSharper.ReSharper_GotoUsage<CR>
-map <leader>nt :vsc SolutionExplorer.SyncWithActiveDocument<CR>
+map <leader>fr  :vsc Edit.FindAllReferences<CR>
+map <leader>gb  :vsc ReSharper.ReSharper_GotoBase<CR>
+map <leader>gi  :vsc ReSharper.ReSharper_GotoInheritors<CR>
+map <leader>pd  :vsc Edit.PeekDefinition<CR>
+map <leader>gd  :vsc Edit.GoToDefinition<CR>
+map <leader>fu  :vsc ReSharper.ReSharper_GotoUsage<CR>
+map <leader>fau :vsc ReSharper.ReSharper_FindUsages<CR>
+map <leader>nt  :vsc SolutionExplorer.SyncWithActiveDocument<CR>
+map <leader>cd  :vsc Edit.CollapsetoDefinitions<CR>
 
 "refactoring
 map <leader>r  :vsc ReSharper.ReSharper_Rename<CR>
@@ -33,7 +35,7 @@ nnoremap <A-S-j> :vsc ReSharper.ReSharper_GotoNextMethod<CR>
 
 nnoremap '' :vsc View.NavigateBackward<CR>
 
-nnoremap <C-S-j> :join<CR>
+nnoremap <C-j> :join<CR>
 
 "switching tabs
 nnoremap <S-k> :vsc Window.NextTab<CR>
@@ -42,5 +44,4 @@ nnoremap <S-j> :vsc Window.PreviousTab<CR>
 "paste multiple times
 xnoremap p pgvy
 
-"move screen to cursor when searching
 nmap <space> zz
