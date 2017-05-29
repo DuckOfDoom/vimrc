@@ -15,7 +15,7 @@ map <leader>gi  :vsc ReSharper.ReSharper_GotoInheritors<CR>
 map <leader>pd  :vsc Edit.PeekDefinition<CR>
 map <leader>gd  :vsc Edit.GoToDefinition<CR>
 map <leader>fu  :vsc ReSharper.ReSharper_GotoUsage<CR>
-map <leader>fau :vsc ReSharper.ReSharper_FindUsages<CR>
+map <leader>fau :vsc ReSharper.ReSharper_FindUsagesAdvanced<CR>
 map <leader>nt  :vsc SolutionExplorer.SyncWithActiveDocument<CR>
 map <leader>cd  :vsc Edit.CollapsetoDefinitions<CR>
 
