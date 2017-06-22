@@ -19,6 +19,9 @@ map <leader>fau :vsc ReSharper.ReSharper_FindUsagesAdvanced<CR>
 map <leader>nt  :vsc SolutionExplorer.SyncWithActiveDocument<CR>
 map <leader>cd  :vsc Edit.CollapsetoDefinitions<CR>
 
+" align
+map ga :vsc Edit.AlignByString<CR><ESC><ESC>
+
 "refactoring
 map <leader>r  :vsc ReSharper.ReSharper_Rename<CR>
 map <leader>em :vsc ReSharper.ReSharper_ExtractMethod<CR>
