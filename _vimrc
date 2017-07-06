@@ -41,6 +41,9 @@ set cmdheight=2
 " A buffer becomes hidden when it is abandoned
 set hidden
 
+" Highlight current cursor line
+set cursorline
+
 " 15 tabs maximum
 set tabpagemax=1
 
