@@ -41,6 +41,9 @@ set cmdheight=2
 " A buffer becomes hidden when it is abandoned
 set hidden
 
+" Highlight current cursor line
+set cursorline
+
 " 15 tabs maximum
 set tabpagemax=1
 
@@ -239,6 +242,7 @@ let g:mapleader = ","
 
 "navigating NERDTree to current file
 map <leader>nt :NERDTreeFind<CR>
+map <leader>nc :NERDTreeClose<CR>
 map <leader>p :call PareditToggle()<CR>
 
 "save and quit
