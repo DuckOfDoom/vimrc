@@ -1,0 +1,33 @@
+set backspace=indent,eol,start
+
+let mapleader = ","
+let g:mapleader = ","
+
+map <leader>ba :action CloseAllEditorsButActive<CR>
+map <leader>bc :action CloseEditor<CR>
+
+map <leader>r :action <CR>
+map <leader>em :action <CR>
+
+map <C-p> :action GotoSymbol<CR>
+map <A-j> :action GotoNextError<CR>
+map <A-k> :action GotoPreviousError<CR>
+
+map <A-S-j> :action MethodDown<CR>
+map <A-S-k> :action MethodUp<CR>
+
+map <leader>fu :action ShowUsages<CR>
+map <leader>fau :action FindUsages<CR>
+map <leader>gd :action GotoDeclaration<CR>
+
+map <leader>nt :action LocateInSolutionExplorer<CR>
+
+map <C-n> :action EditorDown<CR>
+map <C-s> :action SaveAll<CR>
+
+nnoremap <S-j> :action PreviousTab<CR>
+nnoremap <S-k> :action NextTab<CR>
+
+map <C-j> :action EditorJoinLines<CR>
+nnoremap '' :action Back<CR>
+nmap <space> zz
