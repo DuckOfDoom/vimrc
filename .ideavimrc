@@ -5,29 +5,39 @@ let g:mapleader = ","
 
 map <leader>ba :action CloseAllEditorsButActive<CR>
 map <leader>bc :action CloseEditor<CR>
+map <leader>wc :action CloseEditor<CR> 
 
-map <leader>r :action <CR>
-map <leader>em :action <CR>
+map <leader>r :action RenameElement <CR>
 
-map <C-p> :action GotoSymbol<CR>
-map <A-j> :action GotoNextError<CR>
-map <A-k> :action GotoPreviousError<CR>
+map <C-p> :action GotoClass<CR>
+map <A-j> :action NextSplitter<CR>
+map <A-k> :action PrevSplitter<CR>
 
-map <A-S-j> :action MethodDown<CR>
-map <A-S-k> :action MethodUp<CR>
+map <C-A-j> :action MethodDown<CR>
+map <C-A-k> :action MethodUp<CR>
+
+map <A-S-j> :action GotoNextError<CR>    
+map <A-S-k> :action GotoPreviousError<CR>
 
 map <leader>fu :action ShowUsages<CR>
+map <leader>fr :action GotoRelated<CR>
 map <leader>fau :action FindUsages<CR>
-map <leader>gd :action GotoDeclaration<CR>
+map <leader>fd :action GotoDeclaration<CR>
+
+map <leader>b :action Back<CR>
+nnoremap '' :action Back<CR>
 
 map <leader>nt :action LocateInSolutionExplorer<CR>
 
 map <C-n> :action EditorDown<CR>
 map <C-s> :action SaveAll<CR>
 
+map <C-d> :action EditorPageDown<CR>
+map <C-u> :action EditorPageUp<CR>
+
 nnoremap <S-j> :action PreviousTab<CR>
 nnoremap <S-k> :action NextTab<CR>
 
 map <C-j> :action EditorJoinLines<CR>
-nnoremap '' :action Back<CR>
+
 nmap <space> zz
