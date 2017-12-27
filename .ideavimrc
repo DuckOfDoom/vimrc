@@ -23,6 +23,7 @@ map <leader>fu :action ShowUsages<CR>
 map <leader>fr :action GotoRelated<CR>
 map <leader>fau :action FindUsages<CR>
 map <leader>fd :action GotoDeclaration<CR>
+map <leader>gd :action GotoTypeDeclaration<CR>
 
 " SVN
 map <leader>va :action Annotate<CR>
