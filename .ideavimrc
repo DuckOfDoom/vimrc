@@ -23,6 +23,17 @@ map <leader>fu :action ShowUsages<CR>
 map <leader>fr :action GotoRelated<CR>
 map <leader>fau :action FindUsages<CR>
 map <leader>fd :action GotoDeclaration<CR>
+map <leader>gd :action GotoTypeDeclaration<CR>
+
+" SVN
+map <leader>va :action Annotate<CR>
+map <leader>vc :action ChangesView.Commit<CR>
+map <leader>vr :action ChangesView.Revert<CR>
+map <leader>vu :action Vcs.UpdateProject<CR>
+
+map <leader>dt :action EditSourceInNewWindow<CR>
+map <leader>ct :action CloseActiveTab<CR>
+map <leader>vs :vsplit<CR>
 
 map <leader>b :action Back<CR>
 nnoremap '' :action Back<CR>
