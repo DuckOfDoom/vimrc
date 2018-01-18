@@ -240,6 +240,8 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ 
 let mapleader = ","
 let g:mapleader = ","
 
+imap jk <ESC>
+
 "navigating NERDTree to current file
 map <leader>nt :NERDTreeFind<CR>
 map <leader>nc :NERDTreeClose<CR>
@@ -271,6 +273,8 @@ nnoremap <S-k> :bnext<CR>
 nnoremap <S-j> :bprevious<CR>
 nmap <leader>ba :BufOnly<cr>
 nmap <leader>bc :Bclose<cr>
+
+map <leader>hl :call log_highlighter#Hello()<CR>
 
 "window commands
 nnoremap <A-j> :wincmd h<CR>
