@@ -3,6 +3,8 @@ set backspace=indent,eol,start
 let mapleader = ","
 let g:mapleader = ","
 
+imap jk <ESC>
+
 map <leader>ba :action CloseAllEditorsButActive<CR>
 map <leader>bc :action CloseEditor<CR>
 map <leader>wc :action CloseEditor<CR> 
@@ -10,6 +12,9 @@ map <leader>wc :action CloseEditor<CR>
 map <leader>r :action RenameElement <CR>
 
 map <C-p> :action GotoClass<CR>
+map <S-A-p> <A-\> <CR>
+map <C-S-p> :action GotoSymbol<CR>
+
 map <A-j> :action NextSplitter<CR>
 map <A-k> :action PrevSplitter<CR>
 
@@ -35,11 +40,14 @@ map <leader>dt :action EditSourceInNewWindow<CR>
 map <leader>ct :action CloseActiveTab<CR>
 map <leader>vs :vsplit<CR>
 
-map <leader>b :action Back<CR>
+map <leader>gi :action GotoImplementation<CR>
+
 nnoremap '' :action Back<CR>
 
 map <leader>nt :action LocateInSolutionExplorer<CR>
+map <leader>nc <C-A-l>
 
+" needed for intellisense to go down in search box 
 map <C-n> :action EditorDown<CR>
 map <C-s> :action SaveAll<CR>
 

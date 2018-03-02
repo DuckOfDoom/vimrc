@@ -29,7 +29,7 @@ map <leader>em :vsc ReSharper.ReSharper_ExtractMethod<CR>
 map <A-j> :vsc ReSharper.Resharper_GotoNextHighlight<CR>
 map <A-k> :vsc ReSharper.Resharper_GotoPrevHighlight<CR>
 
-nnoremap <C-p> :vsc ReSharper.ReSharper_GotoType<CR>
+nnoremap <C-p> :vsc Edit.NavigateTo<CR>
 
 map <C-n> :vsc Edit.LineDown<CR>
 
