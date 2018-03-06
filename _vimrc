@@ -302,6 +302,8 @@ map k gk
 map <silent><leader><cr> :noh<cr>
 
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+map <leader>jf :call FormatJson()<CR>
 "}}}
 
 " => Tabular {{{
@@ -506,6 +508,11 @@ function! Uncomment()
     else
         silent s:^\s*\/\/::g
     endif
+endfunction
+
+function! FormatJson()
+  :%!python -m json.tool 
+  set syntax=json  
 endfunction
 "}}}
 
