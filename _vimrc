@@ -15,7 +15,7 @@ filetype indent on
 " Set to auto read when a file is changed from the outside
 set autoread
 
-:set noundofile
+set noundofile
 "}}}
 
 " => VIM user interface"{{{
@@ -82,6 +82,8 @@ set mat=2
 set noerrorbells
 set novisualbell
 set tm=500"
+
+set nowrapscan
 
 "-----BEGIN Save/Restore Window Size/Position - autooad/screensize.vim-----
 if has("gui_running")
@@ -303,7 +305,7 @@ map <silent><leader><cr> :noh<cr>
 
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
-map <leader>jf :call FormatJson()<CR>
+map <leader>fj :call FormatJson()<CR>
 "}}}
 
 " => Tabular {{{
