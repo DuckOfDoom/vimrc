@@ -40,7 +40,7 @@ map <leader>dt :action EditSourceInNewWindow<CR>
 map <leader>ct :action CloseActiveTab<CR>
 map <leader>vs :vsplit<CR>
 
-map <leader>gi :action GotoImplementation<CR>
+map <leader>fi :action GotoImplementation<CR>
 
 nnoremap '' :action Back<CR>
 
