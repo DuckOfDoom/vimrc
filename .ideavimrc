@@ -3,6 +3,8 @@ set backspace=indent,eol,start
 let mapleader = ","
 let g:mapleader = ","
 
+set ignorecase
+
 imap jk <ESC>
 
 map <leader>ba :action CloseAllEditorsButActive<CR>
@@ -18,8 +20,8 @@ map <C-S-p> :action GotoSymbol<CR>
 map <A-j> :action NextSplitter<CR>
 map <A-k> :action PrevSplitter<CR>
 
-map <C-A-j> :action MethodDown<CR>
-map <C-A-k> :action MethodUp<CR>
+map <C-S-j> :action MethodDown<CR>
+map <C-S-k> :action MethodUp<CR>
 
 map <A-S-j> :action GotoNextError<CR>    
 map <A-S-k> :action GotoPreviousError<CR>
@@ -29,6 +31,8 @@ map <leader>fr :action GotoRelated<CR>
 map <leader>fau :action FindUsages<CR>
 map <leader>fd :action GotoDeclaration<CR>
 map <leader>gd :action GotoTypeDeclaration<CR>
+
+map <leader>sd :action ShowErrorDescription<CR>
 
 " SVN
 map <leader>va :action Annotate<CR>
