@@ -305,7 +305,12 @@ map <silent><leader><cr> :noh<cr>
 
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
-map <leader>fj :call FormatJson()<CR>
+nmap <leader>fj :call FormatJson("n")<CR>
+vmap <leader>fj :call FormatJson("i")<CR>
+
+" extracts first block in { } 
+map <leader>ej f{v%ygg"_dGP :call FormatJson("n")<CR>
+
 "}}}
 
 " => Tabular {{{
@@ -512,9 +517,14 @@ function! Uncomment()
     endif
 endfunction
 
-function! FormatJson()
-  :%!python -m json.tool 
-  set syntax=json  
+function! FormatJson(mode)
+    if a:mode == "n"
+        :%!python -m json.tool 
+    elseif a:mode == "i"
+        :'<,'>!python -m json.tool 
+    endif
+
+    set syntax=json  
 endfunction
 "}}}
 
