@@ -22,17 +22,17 @@ config_filename = "log_highlig_settings";
 colors = { }
 
 def _gen_random_color():
-    rand_color_hex = lambda: str(hex(random.randint(0,255))).replace("0x","")
-    def get_color():
-        c = rand_color_hex();
+    r = random.randint(100,255) / 2
+    g = (random.randint(100,255)  + 255) / 2
+    b = random.randint(100,255) / 2
+
+    def format_color(c):
+        c = str(hex(c)).replace("0x", "")
         if len(c) == 1:
             c = "0" + c
         return c
 
-    res = "#";
-    for i in range(0,3):
-        res = res + get_color()
-#    print res
+    res = "#" + format_color(r) + format_color(g) + format_color(b)
     return res
 
 def _filter_group(s):
@@ -77,8 +77,9 @@ def highlight_automatically():
     _highlight()
 
 def clear():
-    vim.command("syn clear")
     vim.command("syn off")
+    vim.command("syn clear")
+    vim.command("syn on")
 
 def test():
     _make_config_from_buffer()
