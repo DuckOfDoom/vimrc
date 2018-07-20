@@ -1,3 +1,5 @@
+let $PYTHONHOME='C:\Python27'
+
 set nocompatible
 source $VIMRUNTIME/mswin.vim
 behave mswin
@@ -245,6 +247,7 @@ let g:mapleader = ","
 imap jk <ESC>
 
 "navigating NERDTree to current file
+map <leader>nh :NERDTree $HOME<CR>
 map <leader>nt :NERDTreeFind<CR>
 map <leader>nc :NERDTreeClose<CR>
 map <leader>p :call PareditToggle()<CR>
@@ -262,6 +265,8 @@ if has("win32")
 else 
    map <leader>vrc :vsplit $VIM/vimrc<cr>
 endif
+
+map <leader>vrr :source $MYVIMRC<cr>
 
 "paste multiple lines
 xnoremap p pgvy
