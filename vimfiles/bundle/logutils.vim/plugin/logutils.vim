@@ -4,6 +4,7 @@ if !has('python')
 endif
 
 let s:plugin_root_dir = fnamemodify(resolve(expand('<sfile>:p')), ':h')
+let s:config_filename = 'log_highlighter'
 
 python << ENDPYTHON
 import sys
@@ -23,19 +24,13 @@ ENDPYTHON
 "    finish
 "endif
 
-"command! -nargs=0 Test call Test()
-command! -nargs=0 HighlightWithSettings call HighlightWithSettings()
-command! -nargs=0 HighlightAutomatically call HighlightAutomatically()
-
 noremap  <silent><leader>hs :call HighlightWithSettings() \| nohls<CR>
 noremap  <silent><leader>ha :call HighlightAutomatically() \| nohls<CR>
+noremap  <silent><leader>hh :call HighlightHybrid() \| nohls<CR>
+noremap  <silent><leader>ho :call OpenConfig() \| nohls<CR>
 noremap  <silent><leader>hc :call HighlightClear() \| nohls<CR>
 
 let s:group = "LogsHighlighter_highlight" 
-
-"function! Test()
-"    python highlight.test()
-"endfunction
 
 function! HighlightWithSettings()
     python logutils.highlight_with_settings()
@@ -45,8 +40,16 @@ function! HighlightAutomatically()
     python logutils.highlight_automatically()
 endfunction
 
+function! HighlightHybrid()
+    python logutils.highlight_hybrid()
+endfunction
+
 function! HighlightClear()
    python logutils.clear()    
+endfunction
+
+function! OpenConfig()
+    exec ":vsplit $VIM/" . s:config_filename
 endfunction
 
 "let g:logutils_plugin_loaded = 1

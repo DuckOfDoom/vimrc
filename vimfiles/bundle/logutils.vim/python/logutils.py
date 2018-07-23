@@ -17,14 +17,16 @@ logger_name_pattern = "(?:INFO|WARN|ERROR|DEBUG):(.+?)(?=:)"
 filter_pattern = re.compile('[\W_]+', re.UNICODE)
 
 highlight_group = "LogsHighlighter_highlight"
-config_filename = "log_highlig_settings";
 
 colors = { }
 
 def _gen_random_color():
-    r = random.randint(100,255) / 2
-    g = (random.randint(100,255)  + 255) / 2
-    b = random.randint(100,255) / 2
+    # average colors with this one colors 
+    base_color = [0, 255, 0]
+
+    r = (random.randint(100,255) + base_color[0]) / 2
+    g = (random.randint(100,255) + base_color[1]) / 2
+    b = (random.randint(100,255) + base_color[2]) / 2
 
     def format_color(c):
         c = str(hex(c)).replace("0x", "")
@@ -39,7 +41,7 @@ def _filter_group(s):
     return re.sub(filter_pattern, "", s)
 
 def _load_config_from_file():
-    config_path = os.environ["HOME"] + "/" + config_filename
+    config_path = os.environ["VIM"] + "/" + vim.eval('s:config_filename')
 
     try:
         f = open(config_path)
@@ -76,12 +78,13 @@ def highlight_automatically():
     _make_config_from_buffer()
     _highlight()
 
+def highlight_hybrid():
+    _load_config_from_file()
+    _make_config_from_buffer()
+    _highlight()
+
 def clear():
     vim.command("syn off")
     vim.command("syn clear")
     vim.command("syn on")
-
-def test():
-    _make_config_from_buffer()
-    print colors
 
