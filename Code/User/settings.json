@@ -1,10 +1,20 @@
-{
-    "terminal.external.windowsExec": "C:\\Git\\bin\\sh.exe",
+{ "terminal.external.windowsExec": "C:\\Git\\bin\\sh.exe",
 
     "vim.useCtrlKeys": false,
     "vim.leader": ",",
 
-    "vim.normalModeKeyBindings": [
+    "vim.normalModeKeyBindings" : [
+        {
+            "before": [ "p", ], "after": [ "p", "g", "v", "y" ]
+        },
+        {
+            "before": [ "J" ],
+            "commands": [ "workbench.action.previousEditor" ]
+        },
+        {
+            "before": [ "K" ],
+            "commands": [ "workbench.action.nextEditor" ]
+        },
         {
             "before": [ "<leader>", "b", "c" ],
             "commands": [ "workbench.action.closeActiveEditor" ]
