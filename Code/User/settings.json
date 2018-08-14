@@ -1,0 +1,43 @@
+{
+    "terminal.external.windowsExec": "C:\\Git\\bin\\sh.exe",
+
+    "vim.useCtrlKeys": false,
+    "vim.leader": ",",
+
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [ "<leader>", "b", "c" ],
+            "commands": [ "workbench.action.closeActiveEditor" ]
+        },
+        {
+            "before": [ "<leader>", "b", "a" ],
+            "commands": [ "workbench.action.closeOtherEditors" ]
+        },
+        {
+            "before": [ "<leader>", "f", "d" ],
+            "commands": [ "editor.action.goToDeclaration" ]
+        },
+        {
+            "before": [ "<leader>", "f", "u" ],
+            "commands": [ "editor.action.showReferences" ]
+        },
+        {
+            "before": [ "<leader>", "f", "a", "u" ],
+            "commands": [ "editor.action.showReferences" ]
+        },
+        {
+            "before": [ "<leader>", "n", "t"],
+            "commands": [ "workbench.files.action.showActiveFileInExplorer" ]
+        },
+        {
+            "before": [ "<leader>", "t"],
+            "commands": [ "editor.action.showHover" ]
+        },
+        {
+            "before": [ "<leader>", "i", "t"],
+            "commands": [ "haskero.insertType"],
+            "when": "editorTextFocus"
+        }
+    ],
+    "files.autoSave": "afterDelay"
+}
