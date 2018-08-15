@@ -1,4 +1,2 @@
 # vimrc
-My vim configuration.
-
-TODO: Make all plugins submodules
+Config files and stuff
