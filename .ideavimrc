@@ -7,15 +7,22 @@ set ignorecase
 
 imap jk <ESC>
 
+map <leader><leader>f :action AceAction<CR>
+
 map <leader>ba :action CloseAllEditorsButActive<CR>
 map <leader>bc :action CloseEditor<CR>
 map <leader>wc :action CloseEditor<CR> 
 
-map <leader>r :action RenameElement <CR>
+map <leader>rr :action RenameElement <CR>
+map <leader>rv :action IntroduceVariable <CR>
+map <leader>rp :action IntroduceParameter <CR>
+map <leader>rf :action IntroduceField <CR>
+map <leader>rc :action IntroduceConstant <CR>
+map <leader>rm :action ExtractMethod <CR>
 
 map <C-p> :action GotoClass<CR>
-map <S-A-p> <A-\> <CR>
-map <C-S-p> :action GotoSymbol<CR>
+map <C-S-p> <A-\> <CR>
+map <S-A-p> :action GotoSymbol<CR>
 
 map <A-j> :action NextSplitter<CR>
 map <A-k> :action PrevSplitter<CR>
@@ -25,6 +32,8 @@ map <C-S-k> :action MethodUp<CR>
 
 map <A-S-j> :action GotoNextError<CR>    
 map <A-S-k> :action GotoPreviousError<CR>
+map <C-A-S-j> :action ReSharperGotoNextErrorInSolution<CR>    
+map <C-A-S-k> :action ReSharperGotoPrevErrorInSolution<CR>
 
 map <leader>fu :action ShowUsages<CR>
 map <leader>fr :action GotoRelated<CR>
