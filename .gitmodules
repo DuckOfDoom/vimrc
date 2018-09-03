@@ -73,3 +73,6 @@
 [submodule "vimfiles/bundle/vim-logutils"]
 	path = vimfiles/bundle/vim-logutils
 	url = https://github.com/DuckOfDoom/vim-logutils.git
+[submodule "vimfiles/bundle/vim-easymotion"]
+	path = vimfiles/bundle/vim-easymotion
+	url = https://github.com/easymotion/vim-easymotion.git
