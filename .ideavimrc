@@ -7,7 +7,11 @@ set ignorecase
 
 imap jk <ESC>
 
-map <leader><leader>f :action AceAction<CR>
+map <leader>ff :action AceAction<CR>
+map <leader>fl :action AceLineAction<CR>
+map <leader>fw :action AceWordAction<CR>
+
+map <leader>q :action ShowErrorDescription<CR>
 
 map <leader>ba :action CloseAllEditorsButActive<CR>
 map <leader>bc :action CloseEditor<CR>
@@ -19,6 +23,10 @@ map <leader>rp :action IntroduceParameter <CR>
 map <leader>rf :action IntroduceField <CR>
 map <leader>rc :action IntroduceConstant <CR>
 map <leader>rm :action ExtractMethod <CR>
+map <leader>ri :action Inline <CR>
+" Yes, this works, lol
+map <leader>re :action RiderBackendAction-EncapsulateField <CR>
+
 
 map <C-p> :action GotoClass<CR>
 map <C-S-p> <A-\> <CR>
@@ -39,6 +47,9 @@ map <leader>fu :action ShowUsages<CR>
 map <leader>fr :action GotoRelated<CR>
 map <leader>fau :action FindUsages<CR>
 map <leader>fd :action GotoDeclaration<CR>
+map <leader>fe :action GotoImplementation<CR>
+map <leader>fb :action GotoSuperMethod<CR>
+
 map <leader>gd :action GotoTypeDeclaration<CR>
 
 map <leader>sd :action ShowErrorDescription<CR>
@@ -52,8 +63,6 @@ map <leader>vu :action Vcs.UpdateProject<CR>
 map <leader>dt :action EditSourceInNewWindow<CR>
 map <leader>ct :action CloseActiveTab<CR>
 map <leader>vs :vsplit<CR>
-
-map <leader>fi :action GotoImplementation<CR>
 
 nnoremap '' :action Back<CR>
 
@@ -72,4 +81,4 @@ nnoremap <S-k> :action NextTab<CR>
 
 map <C-j> :action EditorJoinLines<CR>
 
-nmap <space> zz
+nmap <space> zz15<C-e>

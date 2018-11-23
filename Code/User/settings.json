@@ -9,17 +9,23 @@
     },
 
     "stylishHaskell.showConsoleOnError": false,
+    "stylishHaskell.runOnSave": false,
 
     // This does not work =(
     "terminal.external.windowsExec": "C:\\Git\\bin\\sh.exe",
 
     "vim.useCtrlKeys": false,
     "vim.leader": ",",
+    "vim.easymotion": true,
 
     "vim.normalModeKeyBindings" : [
         {
             "before": [ "J" ],
             "commands": [ "workbench.action.previousEditor" ]
+        },
+        {
+            "before": [ "<space>" ],
+            "after" : ["z", "z"]
         },
         {
             "before": [ "K" ],
@@ -54,7 +60,7 @@
             "commands": [ "workbench.files.action.showActiveFileInExplorer" ]
         },
         {
-            "before": [ "<leader>", "t"],
+            "before": [ "<leader>", "q"],
             "commands": [ "editor.action.showHover" ]
         },
         {
@@ -63,5 +69,6 @@
             "when": "editorTextFocus"
         }
     ],
-    "files.autoSave": "off"
+    "files.autoSave": "off",
+    "explorer.confirmDelete": false
 }
