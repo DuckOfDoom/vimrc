@@ -7,6 +7,8 @@ set ignorecase
 
 imap jk <ESC>
 
+map <leader>su :action SurroundWith<CR>
+
 map <leader>ff :action AceAction<CR>
 map <leader>fl :action AceLineAction<CR>
 map <leader>fw :action AceWordAction<CR>
@@ -51,8 +53,6 @@ map <leader>fe :action GotoImplementation<CR>
 map <leader>fb :action GotoSuperMethod<CR>
 
 map <leader>gd :action GotoTypeDeclaration<CR>
-
-map <leader>sd :action ShowErrorDescription<CR>
 
 " SVN
 map <leader>va :action Annotate<CR>
