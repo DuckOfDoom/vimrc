@@ -4,18 +4,9 @@
 [submodule "vimfiles/bundle/nerdtree"]
 	path = vimfiles/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "vimfiles/bundle/cljfold.vim"]
-	path = vimfiles/bundle/cljfold.vim
-	url = https://github.com/DuckOfDoom/cljfold.vim.git
 [submodule "vimfiles/bundle/ctrlp.vim"]
 	path = vimfiles/bundle/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
-[submodule "vimfiles/bundle/ghcmod-vim"]
-	path = vimfiles/bundle/ghcmod-vim
-	url = https://github.com/eagletmt/ghcmod-vim.git
-[submodule "vimfiles/bundle/neco-ghc"]
-	path = vimfiles/bundle/neco-ghc
-	url = https://github.com/eagletmt/neco-ghc.git
 [submodule "vimfiles/bundle/neocomplete.vim"]
 	path = vimfiles/bundle/neocomplete.vim
 	url = https://github.com/Shougo/neocomplete.vim.git
@@ -25,9 +16,6 @@
 [submodule "vimfiles/bundle/rainbow"]
 	path = vimfiles/bundle/rainbow
 	url = https://github.com/luochen1990/rainbow.git
-[submodule "vimfiles/bundle/syntastic"]
-	path = vimfiles/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
 [submodule "vimfiles/bundle/vim-airline"]
 	path = vimfiles/bundle/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git
@@ -37,9 +25,6 @@
 [submodule "vimfiles/bundle/vim-csharp"]
 	path = vimfiles/bundle/vim-csharp
 	url = https://github.com/OrangeT/vim-csharp.git
-[submodule "vimfiles/bundle/vim-fireplace"]
-	path = vimfiles/bundle/vim-fireplace
-	url = https://github.com/tpope/vim-fireplace.git
 [submodule "vimfiles/bundle/vim-glsl"]
 	path = vimfiles/bundle/vim-glsl
 	url = https://github.com/beyondmarc/glsl.vim.git
