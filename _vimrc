@@ -1,5 +1,3 @@
-let $PYTHONHOME='C:\Python27'
-
 set nocompatible
 source $VIMRUNTIME/mswin.vim
 behave mswin
