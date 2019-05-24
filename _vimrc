@@ -42,7 +42,6 @@ set cmdheight=2
 set hidden
 
 " Highlight current cursor line
-set cursorline
 
 " 15 tabs maximum
 set tabpagemax=1
@@ -313,6 +312,8 @@ vmap <leader>fj :call FormatJson("i")<CR>
 
 " extracts first block in { } 
 map <leader>ej f{v%ygg"_dGP :call FormatJson("n")<CR>
+
+map <leader>n :enew<CR>
 
 "}}}
 
