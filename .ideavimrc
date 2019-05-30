@@ -6,24 +6,27 @@ let g:mapleader = ","
 set ignorecase
 
 imap jk <ESC>
+map <leader>vrc :so ~/.ideavimrc<CR>
 
 map <leader>su :action SurroundWith<CR>
 
-map <leader>ff :action AceAction<CR>
-map <leader>fl :action AceLineAction<CR>
-map <leader>fw :action AceWordAction<CR>
+map <leader>wq :action AceAction<CR>
+map <leader>wl :action AceLineAction<CR>
+map <leader>ww :action AceWordAction<CR>
+
+map <leader>wc :action CloseEditor<CR>
 
 map <leader>q :action ShowErrorDescription<CR>
 
 map <leader>ba :action CloseAllEditorsButActive<CR>
 map <leader>bc :action CloseEditor<CR>
-map <leader>wc :action CloseEditor<CR> 
 
 map <leader>rr :action RenameElement <CR>
 map <leader>rv :action IntroduceVariable <CR>
 map <leader>rp :action IntroduceParameter <CR>
 map <leader>rf :action IntroduceField <CR>
 map <leader>rc :action IntroduceConstant <CR>
+map <leader>rs :action ChangeSignature <CR>
 map <leader>rm :action ExtractMethod <CR>
 map <leader>ri :action Inline <CR>
 " Yes, this works, lol
