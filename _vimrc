@@ -249,10 +249,6 @@ map <leader>nt :NERDTreeFind<CR>
 map <leader>nc :NERDTreeClose<CR>
 map <leader>p :call PareditToggle()<CR>
 
-"save and quit
-nmap <leader>w :w!<cr>
-nmap <leader>q :qa!<cr>"
-
 "insert lines
 vmap <leader>l :g/.\n\n\@!/norm o<cr>:noh<cr>
 
@@ -441,15 +437,14 @@ let g:EasyMotion_do_mapping = 0 " Disable default mappings
 " or
 " `s{char}{char}{label}`
 " Need one more keystroke, but on average, it may be more comfortable.
-  nmap <Leader>m <Plug>(easymotion-overwin-s2)
-"nmap <Leader>m <Plug>(easymotion-s2)
+nmap <Leader>wq <Plug>(easymotion-s2)
 
 " Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
 
 " JK motions: Line motions
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
+map <Leader>j<Plug>(easymotion-j)
+map <Leader>k<Plug>(easymotion-k)
 "}}}
 
 " => Helper Functions "{{{
