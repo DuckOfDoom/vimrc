@@ -41,8 +41,6 @@ set cmdheight=2
 " A buffer becomes hidden when it is abandoned
 set hidden
 
-" Highlight current cursor line
-
 " 15 tabs maximum
 set tabpagemax=1
 
@@ -77,12 +75,15 @@ set showmatch
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
+set switchbuf=split
+
 " No annoying sound on errors
 set noerrorbells
 set novisualbell
 set tm=500"
 
 set nowrapscan
+
 
 "-----BEGIN Save/Restore Window Size/Position - autooad/screensize.vim-----
 if has("gui_running")
@@ -427,24 +428,6 @@ endif
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-"}}}
-
-"{{{ => Easymotion
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-
-" Jump to anywhere you want with minimal keystrokes, with just one key binding.
-" `s{char}{label}`
-" or
-" `s{char}{char}{label}`
-" Need one more keystroke, but on average, it may be more comfortable.
-nmap <Leader>wq <Plug>(easymotion-s2)
-
-" Turn on case insensitive feature
-let g:EasyMotion_smartcase = 1
-
-" JK motions: Line motions
-map <Leader>j<Plug>(easymotion-j)
-map <Leader>k<Plug>(easymotion-k)
 "}}}
 
 " => Helper Functions "{{{
