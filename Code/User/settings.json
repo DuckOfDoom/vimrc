@@ -6,6 +6,7 @@
         "editor.insertSpaces": true,
         "editor.tabSize" : 2,
         "editor.autoIndent": true,
+        "editor.defaultFormatter": "MaxGabriel.brittany",
     },
 
     "stylishHaskell.showConsoleOnError": false,
@@ -17,6 +18,20 @@
     "vim.useCtrlKeys": false,
     "vim.leader": ",",
     "vim.easymotion": true,
+
+    "vim.insertModeKeyBindings": [
+        {
+          "before": ["j", "k"],
+          "after": ["<Esc>"]
+        }
+      ],
+
+    "vim.visualModeKeyBindings": [
+        {
+          "before": ["j", "k"],
+          "after": ["<Esc>"]
+        }
+      ],
 
     "vim.normalModeKeyBindings" : [
         {

@@ -242,7 +242,7 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ 
 let mapleader = ","
 let g:mapleader = ","
 
-imap jk <ESC>
+map jk <ESC>
 
 "navigating NERDTree to current file
 map <leader>nh :NERDTree $HOME<CR>
