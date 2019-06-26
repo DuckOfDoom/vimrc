@@ -5,7 +5,9 @@ let g:mapleader = ","
 
 set ignorecase
 
-map jk <ESC>
+imap jk <ESC>
+vmap jk <ESC>
+
 map <leader>vrc :so ~/.ideavimrc<CR>
 
 map <leader>su :action SurroundWith<CR>

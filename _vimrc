@@ -242,7 +242,8 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ 
 let mapleader = ","
 let g:mapleader = ","
 
-map jk <ESC>
+imap jk <ESC>
+vmap jk <ESC>
 
 "navigating NERDTree to current file
 map <leader>nh :NERDTree $HOME<CR>
@@ -297,8 +298,8 @@ inoremap <expr><CR> pumvisible() ? "\<C-n>" : "\<CR>"
 map <C-k><C-c> :call Comment()<CR>
 map <C-k><C-u> :call Uncomment()<CR>
 
-map j gj
-map k gk
+"map j gj
+"map k gk
 
 map <silent><leader><cr> :noh<cr>
 
