@@ -6,7 +6,7 @@
         "editor.insertSpaces": true,
         "editor.tabSize" : 2,
         "editor.autoIndent": true,
-        "editor.defaultFormatter": "MaxGabriel.brittany",
+        "editor.defaultFormatter": "vigoo.stylish-haskell",
     },
 
     "stylishHaskell.showConsoleOnError": false,
