@@ -12,7 +12,7 @@ map <leader>vrc :so ~/.ideavimrc<CR>
 
 map <leader>su :action SurroundWith<CR>
 
-map <leader>wq :action AceAction<CR>
+map <leader>we :action AceAction<CR>
 map <leader>wl :action AceLineAction<CR>
 map <leader>ww :action AceWordAction<CR>
 
