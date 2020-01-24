@@ -36,7 +36,7 @@
 	url = https://github.com/Shougo/vimshell.vim.git
 [submodule "vimfiles/bundle/vim-simple-todo"]
 	path = vimfiles/bundle/vim-simple-todo
-	url = https://github.com/vitalk/vim-simple-todo.git
+	url = https://github.com/DuckOfDoom/vim-simple-todo.git
 [submodule "vimfiles/bundle/vimproc.vim"]
 	path = vimfiles/bundle/vimproc.vim
 	url = https://github.com/Shougo/vimproc.vim.git
