@@ -1,5 +1,7 @@
 set nocompatible
 source $VIMRUNTIME/mswin.vim
+set pythonthreehome=C:\Python\Python37
+set pythonthreedll=C:\Python\Python37\python37.dll
 behave mswin
 execute pathogen#infect()
 
