@@ -80,8 +80,8 @@ set mat=2
 set switchbuf=split
 
 " No annoying sound on errors
-set noerrorbells
-set novisualbell
+set noeb vb t_vb=
+au GUIEnter * set vb t_vb=
 set tm=500"
 
 set nowrapscan
