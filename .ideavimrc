@@ -18,7 +18,8 @@ map <leader>ww :action AceWordAction<CR>
 
 map <leader>wc :action CloseEditor<CR>
 
-map <leader>q :action ShowErrorDescription<CR>
+map <leader>qe :action ShowErrorDescription<CR>
+map <leader>qd :action QuickJavaDoc<CR>
 
 map <leader>ba :action CloseAllEditorsButActive<CR>
 map <leader>bc :action CloseEditor<CR>
