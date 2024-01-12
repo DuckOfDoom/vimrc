@@ -31,6 +31,7 @@ map <leader>rf :action IntroduceField <CR>
 map <leader>rc :action IntroduceConstant <CR>
 map <leader>rs :action ChangeSignature <CR>
 map <leader>rm :action ExtractMethod <CR>
+map <leader>ru :action MembersPullUp<CR>
 map <leader>ri :action Inline <CR>
 " Yes, this works, lol
 map <leader>re :action RiderBackendAction-EncapsulateField <CR>
@@ -46,10 +47,10 @@ map <A-k> :action PrevSplitter<CR>
 map <C-S-j> :action MethodDown<CR>
 map <C-S-k> :action MethodUp<CR>
 
-map <A-S-j> :action GotoNextError<CR>    
-map <A-S-k> :action GotoPreviousError<CR>
 map <C-A-S-j> :action ReSharperGotoNextErrorInSolution<CR>    
 map <C-A-S-k> :action ReSharperGotoPrevErrorInSolution<CR>
+map <A-S-j> :action GotoNextError<CR>    
+map <A-S-k> :action GotoPreviousError<CR>
 
 map <leader>fu :action ShowUsages<CR>
 map <leader>fr :action GotoRelated<CR>
@@ -87,4 +88,4 @@ nnoremap <S-k> :action NextTab<CR>
 
 map <C-j> :action EditorJoinLines<CR>
 
-nmap <space> zz15<C-e>
+nmap <space> zz5<C-e>
