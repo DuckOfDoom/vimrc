@@ -31,7 +31,6 @@ map <leader>rf :action IntroduceField <CR>
 map <leader>rc :action IntroduceConstant <CR>
 map <leader>rs :action ChangeSignature <CR>
 map <leader>rm :action ExtractMethod <CR>
-map <leader>ru :action MembersPullUp<CR>
 map <leader>ri :action Inline <CR>
 " Yes, this works, lol
 map <leader>re :action RiderBackendAction-EncapsulateField <CR>
@@ -61,11 +60,18 @@ map <leader>fb :action GotoSuperMethod<CR>
 
 map <leader>gd :action GotoTypeDeclaration<CR>
 
-" SVN
+" history
+map <leader>vl :action Vcs.History<CR>
 map <leader>va :action Annotate<CR>
 map <leader>vc :action ChangesView.Commit<CR>
 map <leader>vr :action ChangesView.Revert<CR>
 map <leader>vu :action Vcs.UpdateProject<CR>
+
+" refactoring
+map <leader> rf :action IntroduceField<CR>
+map <leader> rv :action IntroduceVariable<CR>
+map <leader> re :action EncapsulateField<CR>
+map <leader> ru :action MembersPullUp<CR>
 
 map <leader>dt :action EditSourceInNewWindow<CR>
 map <leader>ct :action CloseActiveTab<CR>
